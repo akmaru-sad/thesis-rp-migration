@@ -57,7 +57,3 @@ See `CITATION.cff`. Zenodo DOI will be minted on submission.
 - GEE authentication uses interactive personal account; reproduction requires reviewer authentication
 - BWDB raw discharge/stage data NOT redistributed (licensing pending); derived AMS and QC diagnostics deposited to Zenodo on submission
 - BMD station network raw data NOT redistributed; gridded reference deposited to Zenodo only if redistribution licence permits, otherwise IDW correction factors + station list only
-
-## Contact
-
-Author: [TO FILL] · ORCID: [TO FILL] · Supervisor: [TO FILL]
