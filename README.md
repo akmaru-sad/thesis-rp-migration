@@ -1,6 +1,6 @@
 # Satellite-Constrained Return-Period Migration of Flood Hazard at Bahadurabad (Brahmaputra / Jamuna) under CMIP6 Climate Scenarios
 
-**Status:** v0.1.0-alpha · 30-day undergraduate thesis sprint · LOCKED configuration (v1-LOCKED-edit-1, 2026-05-14)
+**Status:** v0.1.0-alpha · 
 
 ## Scope
 
