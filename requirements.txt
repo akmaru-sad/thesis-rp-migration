@@ -1,0 +1,17 @@
+# Python-pure, fast-moving libs installed via pip inside the conda env.
+# Pinned to majors; bump deliberately with deviation-log entry.
+
+# L-moments FFA (Python primary per D-A1-1)
+lmoments3>=1.0.6
+
+# CMIP6 catalog helpers
+intake-esm>=2024.2
+
+# Verbose progress for long-running notebook cells
+tqdm>=4.66
+
+# Sensitivity analysis fallback (R-7 rollback to Sobol' if ANOVA fails)
+SALib>=1.5
+
+# Optional: extra distributions for FFA (LP3, GPD-POT extensions)
+# scipy.stats covers GEV, Gumbel, LN3 directly; lmoments3 covers L-moment fits

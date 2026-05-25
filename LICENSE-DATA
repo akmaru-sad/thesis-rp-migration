@@ -1,0 +1,25 @@
+CC-BY-4.0 — Creative Commons Attribution 4.0 International
+
+This LICENSE-DATA covers:
+  - Everything under docs/
+  - Everything under results/ that is a DERIVED analytical product
+    (figures, tables, derived statistics, ANOVA decompositions)
+  - Chapter drafts and the thesis manuscript
+
+This LICENSE-DATA does NOT cover:
+  - Raw third-party data (BWDB, BMD, GloFAS, ESGF, BMD station network)
+  - GEE-served Sentinel-1 or Landsat imagery (Copernicus / USGS terms apply)
+  - CMIP6 raw outputs (CMIP6 Terms of Use apply; see WCRP CMIP6 data citation)
+
+By using or redistributing the works covered above, you agree to:
+  - Provide attribution to the author (BY)
+  - Indicate if changes were made
+
+Full text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+Required attribution string (suggested):
+
+  Look Sad (2026). "Satellite-Constrained Return-Period Migration of
+  Flood Hazard at Bahadurabad (Brahmaputra/Jamuna) under CMIP6 Climate
+  Scenarios." Undergraduate Thesis. DOI: [pending Zenodo deposit].
+  Licensed under CC-BY-4.0.

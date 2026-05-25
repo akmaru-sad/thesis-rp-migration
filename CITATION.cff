@@ -1,0 +1,46 @@
+cff-version: 1.2.0
+title: "Satellite-Constrained Return-Period Migration of Flood Hazard at Bahadurabad (Brahmaputra/Jamuna) under CMIP6 Climate Scenarios"
+message: "If you use this software or its derived results, please cite as below."
+type: software
+version: "0.1.0-alpha"
+date-released: 2026-05-19
+license: MIT
+license-url: "https://opensource.org/licenses/MIT"
+repository-code: "https://github.com/REPLACE-USER/thesis-rp-migration"
+url: "https://github.com/REPLACE-USER/thesis-rp-migration"
+authors:
+  - family-names: "Sad"
+    given-names: "Look"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+    affiliation: "Department of Environmental Engineering, [Institution TBD]"
+keywords:
+  - "flood frequency analysis"
+  - "CMIP6"
+  - "return period migration"
+  - "Brahmaputra"
+  - "Bahadurabad"
+  - "Sentinel-1"
+  - "Landsat"
+  - "QDM bias correction"
+  - "ANOVA uncertainty decomposition"
+abstract: >
+  Joint application of satellite-derived historical flood evidence (Sentinel-1 SAR
+  via the Mullissa 2021 ARD pipeline + Landsat MNDWI), station-based multi-distribution
+  flood-frequency analysis at BWDB SW46.9L Bahadurabad Transit, and CMIP6-driven future
+  flood projections under SSP2-4.5 and SSP5-8.5 by 2041–2070, with four-source uncertainty
+  attribution (GCM × distribution × bias-correction methodology × satellite classification)
+  via a 54-cell deterministic ensemble with parametric within-cell bootstrap (B=200).
+references:
+  - type: article
+    title: "Bias correction of GCM precipitation by quantile mapping: How well do methods preserve changes in quantiles and extremes?"
+    authors:
+      - family-names: "Cannon"
+        given-names: "Alex J."
+      - family-names: "Sobie"
+        given-names: "Stephen R."
+      - family-names: "Murdock"
+        given-names: "Trevor Q."
+    journal: "Journal of Climate"
+    volume: 28
+    start: 6938
+    year: 2015

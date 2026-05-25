@@ -1,0 +1,114 @@
+# =============================================================================
+# DATA — never commit raw or bulky data, even derived products go to Zenodo
+# =============================================================================
+data/observed/*
+data/satellite/*
+data/cmip6/raw/*
+data/cmip6/bias_corrected/*
+data/reference/*
+!data/**/.gitkeep
+
+# Large result files — keep CSVs/PDFs, exclude netCDF/parquet/tif by default
+results/**/*.nc
+results/**/*.tif
+results/**/*.tiff
+results/**/*.parquet
+results/**/*.zarr
+results/**/*.zip
+
+# =============================================================================
+# Secrets — NEVER commit
+# =============================================================================
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+.cdsapirc
+.netrc
+
+# GEE credentials (interactive auth places them at ~/.config/earthengine/)
+gee_credentials.json
+earthengine-credentials*
+
+# =============================================================================
+# Python
+# =============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+*.egg-info/
+*.egg
+MANIFEST
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual envs (we use conda, but defensive)
+.venv/
+venv/
+env/
+ENV/
+
+# =============================================================================
+# Jupyter
+# =============================================================================
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Notebook outputs should be stripped by nbstripout pre-commit; this is belt-and-braces
+notebooks/*-OUTPUT.ipynb
+
+# =============================================================================
+# IDE / Editor
+# =============================================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =============================================================================
+# OS junk
+# =============================================================================
+*.lnk
+$RECYCLE.BIN/
+ehthumbs.db
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# =============================================================================
+# Logs
+# =============================================================================
+*.log
+logs/
+
+# =============================================================================
+# Temp / scratch
+# =============================================================================
+tmp/
+temp/
+scratch/

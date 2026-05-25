@@ -1,0 +1,29 @@
+{
+  "title": "Satellite-Constrained Return-Period Migration of Flood Hazard at Bahadurabad (Brahmaputra/Jamuna) under CMIP6 Climate Scenarios",
+  "description": "Undergraduate thesis (30-day sprint, v1-LOCKED-edit-1) linking satellite-derived historical flood evidence (Sentinel-1 SAR via Mullissa 2021 ARD pipeline + Landsat MNDWI), station-based multi-distribution flood-frequency analysis at BWDB SW46.9L Bahadurabad Transit, and CMIP6-driven future flood projections under SSP2-4.5 and SSP5-8.5 by 2041-2070, with four-source uncertainty attribution (GCM x distribution x bias-correction methodology x satellite classification) via a 54-cell deterministic ensemble with parametric within-cell bootstrap (B=200, 10,800 total realisations).",
+  "creators": [
+    {
+      "name": "Sad, Look",
+      "affiliation": "Department of Environmental Engineering, [Institution TBD]",
+      "orcid": "0000-0000-0000-0000"
+    }
+  ],
+  "keywords": [
+    "flood frequency analysis",
+    "CMIP6",
+    "return period migration",
+    "Brahmaputra",
+    "Bahadurabad",
+    "Sentinel-1",
+    "Landsat",
+    "QDM bias correction",
+    "ANOVA uncertainty decomposition",
+    "Bangladesh"
+  ],
+  "license": "MIT",
+  "upload_type": "software",
+  "access_right": "open",
+  "language": "eng",
+  "communities": [],
+  "related_identifiers": []
+}

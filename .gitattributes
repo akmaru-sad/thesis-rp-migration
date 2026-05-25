@@ -1,0 +1,22 @@
+# Force LF line endings repo-wide.
+# Critical when collaborating between WSL2/Linux and any future Windows checkout.
+* text=auto eol=lf
+
+# Binary types — leave alone
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.tif binary
+*.tiff binary
+*.nc binary
+*.parquet binary
+*.zip binary
+*.tar binary
+*.gz binary
+*.xlsx binary
+*.xls binary
+
+# Notebooks — track but treat as text for diff purposes (nbstripout normalizes)
+*.ipynb text

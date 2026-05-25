@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "thesis-rp-migration"
+version = "0.1.0a0"
+description = "Satellite-constrained return-period migration of flood hazard at Bahadurabad (Brahmaputra/Jamuna) under CMIP6."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Look Sad", email = "TO-FILL@example.com" }]
+keywords = ["hydrology", "cmip6", "flood-frequency", "remote-sensing", "bahadurabad", "brahmaputra"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Hydrology",
+]
+dependencies = []  # All deps are managed via environment.yml + requirements.txt
+
+[project.urls]
+Repository = "https://github.com/REPLACE-USER/thesis-rp-migration"
+
+[tool.setuptools]
+package-dir = { "" = "code" }
+
+[tool.setuptools.packages.find]
+where = ["code"]
+include = ["utils*", "chain_*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | build
+  | dist
+  | data
+  | results
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+known_first_party = ["utils", "chain_a_satellite", "chain_b_cmip6", "chain_d_ffa", "chain_e_uq"]
+skip = ["data", "results", ".venv"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
