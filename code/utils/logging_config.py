@@ -19,9 +19,7 @@ from typing import Optional
 
 from .paths import REPO_ROOT
 
-_DEFAULT_FORMAT = (
-    "%(asctime)s | %(levelname)-8s | %(name)s | %(filename)s:%(lineno)d | %(message)s"
-)
+_DEFAULT_FORMAT = "%(asctime)s | %(levelname)-8s | %(name)s | %(filename)s:%(lineno)d | %(message)s"
 _DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
 
 
