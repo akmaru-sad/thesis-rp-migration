@@ -1,6 +1,6 @@
 # Satellite-Constrained Return-Period Migration of Flood Hazard at Bahadurabad (Brahmaputra / Jamuna) under CMIP6 Climate Scenarios
 
-**Status:** v0.1.0-alpha · 30-day undergraduate thesis sprint · LOCKED configuration (v1-LOCKED-edit-1, 2026-05-14)
+**Status:** v0.1.0-alpha · 
 
 ## Scope
 
@@ -57,7 +57,3 @@ See `CITATION.cff`. Zenodo DOI will be minted on submission.
 - GEE authentication uses interactive personal account; reproduction requires reviewer authentication
 - BWDB raw discharge/stage data NOT redistributed (licensing pending); derived AMS and QC diagnostics deposited to Zenodo on submission
 - BMD station network raw data NOT redistributed; gridded reference deposited to Zenodo only if redistribution licence permits, otherwise IDW correction factors + station list only
-
-## Contact
-
-Author: [TO FILL] · ORCID: [TO FILL] · Supervisor: [TO FILL]
