@@ -1,0 +1,110 @@
+[
+  {
+    "index": "DKRZ",
+    "gcm": "ACCESS-CM2",
+    "exp": "historical",
+    "n": 0
+  },
+  {
+    "index": "DKRZ",
+    "gcm": "ACCESS-CM2",
+    "exp": "ssp245",
+    "n": 0
+  },
+  {
+    "index": "DKRZ",
+    "gcm": "ACCESS-CM2",
+    "exp": "ssp585",
+    "n": 0
+  },
+  {
+    "index": "DKRZ",
+    "gcm": "MPI-ESM1-2-HR",
+    "exp": "historical",
+    "n": 1
+  },
+  {
+    "index": "DKRZ",
+    "gcm": "MPI-ESM1-2-HR",
+    "exp": "ssp245",
+    "n": 1
+  },
+  {
+    "index": "DKRZ",
+    "gcm": "MPI-ESM1-2-HR",
+    "exp": "ssp585",
+    "n": 1
+  },
+  {
+    "index": "DKRZ",
+    "gcm": "GFDL-ESM4",
+    "exp": "historical",
+    "n": 0
+  },
+  {
+    "index": "DKRZ",
+    "gcm": "GFDL-ESM4",
+    "exp": "ssp245",
+    "n": 0
+  },
+  {
+    "index": "DKRZ",
+    "gcm": "GFDL-ESM4",
+    "exp": "ssp585",
+    "n": 0
+  },
+  {
+    "index": "NCI",
+    "gcm": "ACCESS-CM2",
+    "exp": "historical",
+    "n": 1
+  },
+  {
+    "index": "NCI",
+    "gcm": "ACCESS-CM2",
+    "exp": "ssp245",
+    "n": 1
+  },
+  {
+    "index": "NCI",
+    "gcm": "ACCESS-CM2",
+    "exp": "ssp585",
+    "n": 1
+  },
+  {
+    "index": "NCI",
+    "gcm": "MPI-ESM1-2-HR",
+    "exp": "historical",
+    "n": 0
+  },
+  {
+    "index": "NCI",
+    "gcm": "MPI-ESM1-2-HR",
+    "exp": "ssp245",
+    "n": 0
+  },
+  {
+    "index": "NCI",
+    "gcm": "MPI-ESM1-2-HR",
+    "exp": "ssp585",
+    "n": 0
+  },
+  {
+    "index": "NCI",
+    "gcm": "GFDL-ESM4",
+    "exp": "historical",
+    "n": 0
+  },
+  {
+    "index": "NCI",
+    "gcm": "GFDL-ESM4",
+    "exp": "ssp245",
+    "n": "ERROR: URLError: <urlopen error timed out>"
+  },
+  {
+    "index": "NCI",
+    "gcm": "GFDL-ESM4",
+    "exp": "ssp585",
+    "n": 0
+  }
+]

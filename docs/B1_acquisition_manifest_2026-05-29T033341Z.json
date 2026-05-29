@@ -1,0 +1,146 @@
+{
+  "run_timestamp_utc": "2026-05-29T033341Z",
+  "endpoint": "https://esgf-data.dkrz.de/esg-search/search",
+  "matrix": {
+    "variable": "pr",
+    "table": "day",
+    "variant": "r1i1p1f1"
+  },
+  "tuples": [
+    {
+      "source_id": "ACCESS-CM2",
+      "experiment_id": "historical",
+      "n_candidates": 2,
+      "chosen": {
+        "id": "CMIP6.CMIP.CSIRO-ARCCSS.ACCESS-CM2.historical.r1i1p1f1.day.pr.gn.v20191108|esgf.ceda.ac.uk",
+        "instance": "CMIP6.CMIP.CSIRO-ARCCSS.ACCESS-CM2.historical.r1i1p1f1.day.pr.gn.v20191108",
+        "data_node": "esgf.ceda.ac.uk",
+        "is_replica": true,
+        "version": "20191108",
+        "number_of_files": 4
+      },
+      "wget_path": "results/cmip6_raw/wget/wget_ACCESS-CM2_historical.sh",
+      "status": "OK"
+    },
+    {
+      "source_id": "ACCESS-CM2",
+      "experiment_id": "ssp245",
+      "n_candidates": 2,
+      "chosen": {
+        "id": "CMIP6.ScenarioMIP.CSIRO-ARCCSS.ACCESS-CM2.ssp245.r1i1p1f1.day.pr.gn.v20191108|esgf.ceda.ac.uk",
+        "instance": "CMIP6.ScenarioMIP.CSIRO-ARCCSS.ACCESS-CM2.ssp245.r1i1p1f1.day.pr.gn.v20191108",
+        "data_node": "esgf.ceda.ac.uk",
+        "is_replica": true,
+        "version": "20191108",
+        "number_of_files": 2
+      },
+      "wget_path": "results/cmip6_raw/wget/wget_ACCESS-CM2_ssp245.sh",
+      "status": "OK"
+    },
+    {
+      "source_id": "ACCESS-CM2",
+      "experiment_id": "ssp585",
+      "n_candidates": 1,
+      "chosen": {
+        "id": "CMIP6.ScenarioMIP.CSIRO-ARCCSS.ACCESS-CM2.ssp585.r1i1p1f1.day.pr.gn.v20210317|esgf.ceda.ac.uk",
+        "instance": "CMIP6.ScenarioMIP.CSIRO-ARCCSS.ACCESS-CM2.ssp585.r1i1p1f1.day.pr.gn.v20210317",
+        "data_node": "esgf.ceda.ac.uk",
+        "is_replica": true,
+        "version": "20210317",
+        "number_of_files": 1
+      },
+      "wget_path": "results/cmip6_raw/wget/wget_ACCESS-CM2_ssp585.sh",
+      "status": "OK"
+    },
+    {
+      "source_id": "MPI-ESM1-2-HR",
+      "experiment_id": "historical",
+      "n_candidates": 1,
+      "chosen": {
+        "id": "CMIP6.CMIP.MPI-M.MPI-ESM1-2-HR.historical.r1i1p1f1.day.pr.gn.v20190710|esgf.ceda.ac.uk",
+        "instance": "CMIP6.CMIP.MPI-M.MPI-ESM1-2-HR.historical.r1i1p1f1.day.pr.gn.v20190710",
+        "data_node": "esgf.ceda.ac.uk",
+        "is_replica": true,
+        "version": "20190710",
+        "number_of_files": 33
+      },
+      "wget_path": "results/cmip6_raw/wget/wget_MPI-ESM1-2-HR_historical.sh",
+      "status": "OK"
+    },
+    {
+      "source_id": "MPI-ESM1-2-HR",
+      "experiment_id": "ssp245",
+      "n_candidates": 1,
+      "chosen": {
+        "id": "CMIP6.ScenarioMIP.DKRZ.MPI-ESM1-2-HR.ssp245.r1i1p1f1.day.pr.gn.v20190710|esgf.ceda.ac.uk",
+        "instance": "CMIP6.ScenarioMIP.DKRZ.MPI-ESM1-2-HR.ssp245.r1i1p1f1.day.pr.gn.v20190710",
+        "data_node": "esgf.ceda.ac.uk",
+        "is_replica": true,
+        "version": "20190710",
+        "number_of_files": 18
+      },
+      "wget_path": "results/cmip6_raw/wget/wget_MPI-ESM1-2-HR_ssp245.sh",
+      "status": "OK"
+    },
+    {
+      "source_id": "MPI-ESM1-2-HR",
+      "experiment_id": "ssp585",
+      "n_candidates": 1,
+      "chosen": {
+        "id": "CMIP6.ScenarioMIP.DKRZ.MPI-ESM1-2-HR.ssp585.r1i1p1f1.day.pr.gn.v20190710|esgf.ceda.ac.uk",
+        "instance": "CMIP6.ScenarioMIP.DKRZ.MPI-ESM1-2-HR.ssp585.r1i1p1f1.day.pr.gn.v20190710",
+        "data_node": "esgf.ceda.ac.uk",
+        "is_replica": true,
+        "version": "20190710",
+        "number_of_files": 18
+      },
+      "wget_path": "results/cmip6_raw/wget/wget_MPI-ESM1-2-HR_ssp585.sh",
+      "status": "OK"
+    },
+    {
+      "source_id": "GFDL-ESM4",
+      "experiment_id": "historical",
+      "n_candidates": 1,
+      "chosen": {
+        "id": "CMIP6.CMIP.NOAA-GFDL.GFDL-ESM4.historical.r1i1p1f1.day.pr.gr1.v20190726|esgf.ceda.ac.uk",
+        "instance": "CMIP6.CMIP.NOAA-GFDL.GFDL-ESM4.historical.r1i1p1f1.day.pr.gr1.v20190726",
+        "data_node": "esgf.ceda.ac.uk",
+        "is_replica": true,
+        "version": "20190726",
+        "number_of_files": 9
+      },
+      "wget_path": "results/cmip6_raw/wget/wget_GFDL-ESM4_historical.sh",
+      "status": "OK"
+    },
+    {
+      "source_id": "GFDL-ESM4",
+      "experiment_id": "ssp245",
+      "n_candidates": 2,
+      "chosen": {
+        "id": "CMIP6.ScenarioMIP.NOAA-GFDL.GFDL-ESM4.ssp245.r1i1p1f1.day.pr.gr1.v20180701|esgf.ceda.ac.uk",
+        "instance": "CMIP6.ScenarioMIP.NOAA-GFDL.GFDL-ESM4.ssp245.r1i1p1f1.day.pr.gr1.v20180701",
+        "data_node": "esgf.ceda.ac.uk",
+        "is_replica": true,
+        "version": "20180701",
+        "number_of_files": 5
+      },
+      "wget_path": "results/cmip6_raw/wget/wget_GFDL-ESM4_ssp245.sh",
+      "status": "OK"
+    },
+    {
+      "source_id": "GFDL-ESM4",
+      "experiment_id": "ssp585",
+      "n_candidates": 1,
+      "chosen": {
+        "id": "CMIP6.ScenarioMIP.NOAA-GFDL.GFDL-ESM4.ssp585.r1i1p1f1.day.pr.gr1.v20180701|esgf.ceda.ac.uk",
+        "instance": "CMIP6.ScenarioMIP.NOAA-GFDL.GFDL-ESM4.ssp585.r1i1p1f1.day.pr.gr1.v20180701",
+        "data_node": "esgf.ceda.ac.uk",
+        "is_replica": true,
+        "version": "20180701",
+        "number_of_files": 5
+      },
+      "wget_path": "results/cmip6_raw/wget/wget_GFDL-ESM4_ssp585.sh",
+      "status": "OK"
+    }
+  ]
+}

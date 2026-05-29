@@ -1,0 +1,286 @@
+{
+  "run_timestamp_utc": "2026-05-29T032708Z",
+  "indices": [
+    "esgf-data.dkrz.de",
+    "esgf.nci.org.au",
+    "esgf.ceda.ac.uk"
+  ],
+  "verdict": "TUPLE_GAP",
+  "summary": {
+    "ok": 0,
+    "variant_gap": 0,
+    "tuple_gap": 9
+  },
+  "results": [
+    {
+      "source_id": "ACCESS-CM2",
+      "experiment_id": "historical",
+      "per_index": {
+        "esgf-data.dkrz.de": {
+          "status": "ERROR",
+          "n": 0,
+          "variants": [],
+          "nodes": [],
+          "error": "ValueError: Must have equal len keys and value when setting with an iterable"
+        },
+        "esgf.nci.org.au": {
+          "status": "ERROR",
+          "n": 0,
+          "variants": [],
+          "nodes": [],
+          "error": "ValueError: Must have equal len keys and value when setting with an iterable"
+        },
+        "esgf.ceda.ac.uk": {
+          "status": "ERROR",
+          "n": 0,
+          "variants": [],
+          "nodes": [],
+          "error": "ValueError: Must have equal len keys and value when setting with an iterable"
+        }
+      },
+      "union_n": 0,
+      "locked_variant_present": false,
+      "available_variants": [],
+      "status": "TUPLE_GAP"
+    },
+    {
+      "source_id": "ACCESS-CM2",
+      "experiment_id": "ssp245",
+      "per_index": {
+        "esgf-data.dkrz.de": {
+          "status": "ERROR",
+          "n": 0,
+          "variants": [],
+          "nodes": [],
+          "error": "ValueError: Must have equal len keys and value when setting with an iterable"
+        },
+        "esgf.nci.org.au": {
+          "status": "ERROR",
+          "n": 0,
+          "variants": [],
+          "nodes": [],
+          "error": "ValueError: Must have equal len keys and value when setting with an iterable"
+        },
+        "esgf.ceda.ac.uk": {
+          "status": "ERROR",
+          "n": 0,
+          "variants": [],
+          "nodes": [],
+          "error": "ValueError: Must have equal len keys and value when setting with an iterable"
+        }
+      },
+      "union_n": 0,
+      "locked_variant_present": false,
+      "available_variants": [],
+      "status": "TUPLE_GAP"
+    },
+    {
+      "source_id": "ACCESS-CM2",
+      "experiment_id": "ssp585",
+      "per_index": {
+        "esgf-data.dkrz.de": {
+          "status": "ERROR",
+          "n": 0,
+          "variants": [],
+          "nodes": [],
+          "error": "ValueError: Must have equal len keys and value when setting with an iterable"
+        },
+        "esgf.nci.org.au": {
+          "status": "ERROR",
+          "n": 0,
+          "variants": [],
+          "nodes": [],
+          "error": "ValueError: Must have equal len keys and value when setting with an iterable"
+        },
+        "esgf.ceda.ac.uk": {
+          "status": "ERROR",
+          "n": 0,
+          "variants": [],
+          "nodes": [],
+          "error": "ValueError: Must have equal len keys and value when setting with an iterable"
+        }
+      },
+      "union_n": 0,
+      "locked_variant_present": false,
+      "available_variants": [],
+      "status": "TUPLE_GAP"
+    },
+    {
+      "source_id": "MPI-ESM1-2-HR",
+      "experiment_id": "historical",
+      "per_index": {
+        "esgf-data.dkrz.de": {
+          "status": "ERROR",
+          "n": 0,
+          "variants": [],
+          "nodes": [],
+          "error": "ValueError: Must have equal len keys and value when setting with an iterable"
+        },
+        "esgf.nci.org.au": {
+          "status": "ERROR",
+          "n": 0,
+          "variants": [],
+          "nodes": [],
+          "error": "ValueError: Must have equal len keys and value when setting with an iterable"
+        },
+        "esgf.ceda.ac.uk": {
+          "status": "ERROR",
+          "n": 0,
+          "variants": [],
+          "nodes": [],
+          "error": "ValueError: Must have equal len keys and value when setting with an iterable"
+        }
+      },
+      "union_n": 0,
+      "locked_variant_present": false,
+      "available_variants": [],
+      "status": "TUPLE_GAP"
+    },
+    {
+      "source_id": "MPI-ESM1-2-HR",
+      "experiment_id": "ssp245",
+      "per_index": {
+        "esgf-data.dkrz.de": {
+          "status": "ERROR",
+          "n": 0,
+          "variants": [],
+          "nodes": [],
+          "error": "ValueError: Must have equal len keys and value when setting with an iterable"
+        },
+        "esgf.nci.org.au": {
+          "status": "ERROR",
+          "n": 0,
+          "variants": [],
+          "nodes": [],
+          "error": "ValueError: Must have equal len keys and value when setting with an iterable"
+        },
+        "esgf.ceda.ac.uk": {
+          "status": "ERROR",
+          "n": 0,
+          "variants": [],
+          "nodes": [],
+          "error": "ValueError: Must have equal len keys and value when setting with an iterable"
+        }
+      },
+      "union_n": 0,
+      "locked_variant_present": false,
+      "available_variants": [],
+      "status": "TUPLE_GAP"
+    },
+    {
+      "source_id": "MPI-ESM1-2-HR",
+      "experiment_id": "ssp585",
+      "per_index": {
+        "esgf-data.dkrz.de": {
+          "status": "ERROR",
+          "n": 0,
+          "variants": [],
+          "nodes": [],
+          "error": "ValueError: Must have equal len keys and value when setting with an iterable"
+        },
+        "esgf.nci.org.au": {
+          "status": "ERROR",
+          "n": 0,
+          "variants": [],
+          "nodes": [],
+          "error": "ValueError: Must have equal len keys and value when setting with an iterable"
+        },
+        "esgf.ceda.ac.uk": {
+          "status": "ERROR",
+          "n": 0,
+          "variants": [],
+          "nodes": [],
+          "error": "ValueError: Must have equal len keys and value when setting with an iterable"
+        }
+      },
+      "union_n": 0,
+      "locked_variant_present": false,
+      "available_variants": [],
+      "status": "TUPLE_GAP"
+    },
+    {
+      "source_id": "GFDL-ESM4",
+      "experiment_id": "historical",
+      "per_index": {
+        "esgf-data.dkrz.de": {
+          "status": "EMPTY",
+          "n": 0,
+          "variants": [],
+          "nodes": []
+        },
+        "esgf.nci.org.au": {
+          "status": "EMPTY",
+          "n": 0,
+          "variants": [],
+          "nodes": []
+        },
+        "esgf.ceda.ac.uk": {
+          "status": "EMPTY",
+          "n": 0,
+          "variants": [],
+          "nodes": []
+        }
+      },
+      "union_n": 0,
+      "locked_variant_present": false,
+      "available_variants": [],
+      "status": "TUPLE_GAP"
+    },
+    {
+      "source_id": "GFDL-ESM4",
+      "experiment_id": "ssp245",
+      "per_index": {
+        "esgf-data.dkrz.de": {
+          "status": "EMPTY",
+          "n": 0,
+          "variants": [],
+          "nodes": []
+        },
+        "esgf.nci.org.au": {
+          "status": "EMPTY",
+          "n": 0,
+          "variants": [],
+          "nodes": []
+        },
+        "esgf.ceda.ac.uk": {
+          "status": "EMPTY",
+          "n": 0,
+          "variants": [],
+          "nodes": []
+        }
+      },
+      "union_n": 0,
+      "locked_variant_present": false,
+      "available_variants": [],
+      "status": "TUPLE_GAP"
+    },
+    {
+      "source_id": "GFDL-ESM4",
+      "experiment_id": "ssp585",
+      "per_index": {
+        "esgf-data.dkrz.de": {
+          "status": "EMPTY",
+          "n": 0,
+          "variants": [],
+          "nodes": []
+        },
+        "esgf.nci.org.au": {
+          "status": "EMPTY",
+          "n": 0,
+          "variants": [],
+          "nodes": []
+        },
+        "esgf.ceda.ac.uk": {
+          "status": "EMPTY",
+          "n": 0,
+          "variants": [],
+          "nodes": []
+        }
+      },
+      "union_n": 0,
+      "locked_variant_present": false,
+      "available_variants": [],
+      "status": "TUPLE_GAP"
+    }
+  ]
+}

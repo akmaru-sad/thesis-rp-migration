@@ -1,0 +1,110 @@
+{
+  "run_timestamp_utc": "2026-05-29T025017Z",
+  "indices": [
+    "esgf-data.dkrz.de",
+    "esgf.nci.org.au"
+  ],
+  "matrix": {
+    "gcms": [
+      "ACCESS-CM2",
+      "MPI-ESM1-2-HR",
+      "GFDL-ESM4"
+    ],
+    "experiments": [
+      "historical",
+      "ssp245",
+      "ssp585"
+    ],
+    "variable": "pr",
+    "table": "day",
+    "variant": "r1i1p1f1",
+    "grids": [
+      "gn",
+      "gr"
+    ]
+  },
+  "verdict": "ERROR",
+  "results": [
+    {
+      "source_id": "ACCESS-CM2",
+      "experiment_id": "historical",
+      "n_datasets": 0,
+      "grid_labels": [],
+      "data_nodes": [],
+      "status": "ERROR",
+      "error": "ValueError: Must have equal len keys and value when setting with an iterable"
+    },
+    {
+      "source_id": "ACCESS-CM2",
+      "experiment_id": "ssp245",
+      "n_datasets": 0,
+      "grid_labels": [],
+      "data_nodes": [],
+      "status": "ERROR",
+      "error": "ValueError: Must have equal len keys and value when setting with an iterable"
+    },
+    {
+      "source_id": "ACCESS-CM2",
+      "experiment_id": "ssp585",
+      "n_datasets": 0,
+      "grid_labels": [],
+      "data_nodes": [],
+      "status": "ERROR",
+      "error": "ValueError: Must have equal len keys and value when setting with an iterable"
+    },
+    {
+      "source_id": "MPI-ESM1-2-HR",
+      "experiment_id": "historical",
+      "n_datasets": 0,
+      "grid_labels": [],
+      "data_nodes": [],
+      "status": "ERROR",
+      "error": "ValueError: Must have equal len keys and value when setting with an iterable"
+    },
+    {
+      "source_id": "MPI-ESM1-2-HR",
+      "experiment_id": "ssp245",
+      "n_datasets": 0,
+      "grid_labels": [],
+      "data_nodes": [],
+      "status": "ERROR",
+      "error": "ValueError: Must have equal len keys and value when setting with an iterable"
+    },
+    {
+      "source_id": "MPI-ESM1-2-HR",
+      "experiment_id": "ssp585",
+      "n_datasets": 0,
+      "grid_labels": [],
+      "data_nodes": [],
+      "status": "ERROR",
+      "error": "ValueError: Must have equal len keys and value when setting with an iterable"
+    },
+    {
+      "source_id": "GFDL-ESM4",
+      "experiment_id": "historical",
+      "n_datasets": 0,
+      "grid_labels": [],
+      "data_nodes": [],
+      "status": "ERROR",
+      "error": "NoSearchResults: "
+    },
+    {
+      "source_id": "GFDL-ESM4",
+      "experiment_id": "ssp245",
+      "n_datasets": 0,
+      "grid_labels": [],
+      "data_nodes": [],
+      "status": "ERROR",
+      "error": "NoSearchResults: "
+    },
+    {
+      "source_id": "GFDL-ESM4",
+      "experiment_id": "ssp585",
+      "n_datasets": 0,
+      "grid_labels": [],
+      "data_nodes": [],
+      "status": "ERROR",
+      "error": "NoSearchResults: "
+    }
+  ]
+}
