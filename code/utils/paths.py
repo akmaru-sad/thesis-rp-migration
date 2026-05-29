@@ -118,9 +118,7 @@ def get_paths(require_data_root: bool = True) -> ProjectPaths:
         raw = _optional_env("DATA_ROOT")
         data_root = Path(raw).expanduser().resolve() if raw else Path("/tmp/UNRESOLVED-DATA-ROOT")
 
-    bwdb_rel = _optional_env(
-        "BWDB_PATH", "observed/bwdb_sw46p9l_bahadurabad_1988-2026.xlsx"
-    )
+    bwdb_rel = _optional_env("BWDB_PATH", "observed/bwdb_sw46p9l_bahadurabad_1988-2026.xlsx")
     bwdb_fallback_rel = _optional_env(
         "BWDB_FALLBACK_PATH", "observed/bwdb_sw267_sylhet_1988-2026.xlsx"
     )

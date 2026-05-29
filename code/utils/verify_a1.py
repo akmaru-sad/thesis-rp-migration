@@ -142,9 +142,7 @@ def check_repo_layout() -> str:
 def check_env_file() -> str:
     p = REPO_ROOT / ".env"
     if not p.exists():
-        raise RuntimeError(
-            f".env not found at {p}. Copy from .env.example: cp .env.example .env"
-        )
+        raise RuntimeError(f".env not found at {p}. Copy from .env.example: cp .env.example .env")
     return f".env found at {p}"
 
 
@@ -220,8 +218,8 @@ def check_imports() -> str:
 
 @_check("Local package 'utils' importable")
 def check_local_package() -> str:
-    from utils.paths import get_paths  # noqa: F401
     from utils.logging_config import configure_logging  # noqa: F401
+    from utils.paths import get_paths  # noqa: F401
 
     return "utils.paths and utils.logging_config importable"
 
@@ -247,9 +245,7 @@ def check_git_remote() -> str:
 def check_precommit() -> str:
     hook = REPO_ROOT / ".git" / "hooks" / "pre-commit"
     if not hook.exists():
-        raise RuntimeError(
-            f"Hook not at {hook}. Run: pre-commit install (see A1_SETUP.md Step 9)."
-        )
+        raise RuntimeError(f"Hook not at {hook}. Run: pre-commit install (see A1_SETUP.md Step 9).")
     return f"Hook present at {hook}"
 
 
@@ -262,9 +258,7 @@ def check_gee_auth() -> str:
     ]
     found = [p for p in cred_paths if p.exists()]
     if not found:
-        raise RuntimeError(
-            "No GEE credentials file found. Run `earthengine authenticate`."
-        )
+        raise RuntimeError("No GEE credentials file found. Run `earthengine authenticate`.")
     return f"Credentials at {found[0]}"
 
 

@@ -132,3 +132,9 @@ Per §14.5 of `UG_Thesis-v1-locked-edit-1`. Every departure from the LOCKED conf
 - **Supervisor notified:**
 - **Chapter sections to update:**
 -->
+### A.1 closure 2026-05-19: Component A.1 complete
+- **Status:** verify_a1.py exit 0 confirmed.
+- **Tag:** v0.1.0-alpha pushed.
+- **Setup deviations logged:** LIM-A1-1 (GEE personal-account auth), LIM-A1-2 (GEE notebook-mode auth, GCP project registration friction).
+- **Open dependencies for downstream chains:** CDS API registration (deferred to Chain B.0b, Day 3–4); BWDB Excel structural audit (deferred to A.2 session).
+- **No methodological deviation; no rollback condition invoked.**
