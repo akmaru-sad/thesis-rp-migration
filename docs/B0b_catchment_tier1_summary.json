@@ -1,0 +1,15 @@
+{
+  "name": "Brahmaputra catchment above SW46.9L",
+  "gauge": "SW46.9L Bahadurabad Transit",
+  "gauge_lon": 89.7346,
+  "gauge_lat": 25.1303,
+  "outlet_hybas_id": 4070928420,
+  "main_bas": 4070025450,
+  "pfaf_level": 7,
+  "n_subbasins": 226,
+  "area_km2_geom": 514837.2,
+  "up_area_km2_hydrobasins": 514663.2,
+  "source": "HydroBASINS v1c region 'as' (Lehner & Grill 2013, HP 27:2171); upstream trace via NEXT_DOWN",
+  "method": "Tier-1 topological delineation",
+  "created_utc": "2026-05-30T03:06:39+00:00"
+}

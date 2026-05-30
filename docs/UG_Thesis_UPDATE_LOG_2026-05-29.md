@@ -37,25 +37,7 @@ The `intake-esgf` Python library failed on this environment with a reproducible 
 ### 1.4 What was adopted
 
 Direct SOLR REST queries via `urllib.request` (Python standard library) against the DKRZ endpoint with `distrib=true` and `replica=true`, followed by per-dataset wget-script generation via the ESGF wget endpoint, executed with the `-s` flag per ESGF documentation for the post-OpenID transition period. The acquisition path is unauthenticated end-to-end. A single-file pilot download confirmed the path works on residential-grade Bangladesh network connectivity.
-## 1a. Closure of Check 6a — CDS API path (added 2026-05-29 afternoon)
 
-CDS API (Copernicus Climate Data Store) verified operational for ERA5
-acquisition. Three verifications completed:
-
-- `cdsapi` Python library installed in `esgf` mamba environment
-- `~/.cdsapirc` configured with current post-migration URL
-  (`https://cds.climate.copernicus.eu/api`) and personal access token
-- End-to-end smoke test (`b0_cds_smoke_test.py`) returned a valid
-  NetCDF for a minimal ERA5 reanalysis-single-levels request
-
-B.0b (ERA5 basin-mean acquisition over the Brahmaputra catchment
-polygon above SW46.9L, 1988–2014 historical reference for QDM
-training per C2 amendment) is now unblocked.
-
-Per parent-session brief's noted common failure modes: (1) per-dataset
-licence acceptance was performed in browser before API call; (2) URL
-field in ~/.cdsapirc uses the post-migration endpoint, not the
-deprecated `/v2` form found in older tutorials.
 ---
 
 ## 2. Deviation D14 — finalised (replaces pending wording)

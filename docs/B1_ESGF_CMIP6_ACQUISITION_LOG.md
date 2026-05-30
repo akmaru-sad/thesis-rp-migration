@@ -125,17 +125,17 @@ The pilot confirms operational viability of the no-auth path on the local networ
 
 ### 4.3 Per-tuple acquisition status
 
-[2026-05-29T~07:30Z]  ACCESS-CM2 / historical
-  data_node      : esgf.ceda.ac.uk
-  n_files        : 4
-  bytes          : ~5.3 GB
-  sha256_verified: yes (wget script auto-check, all 4 files)
-  wall_clock     : ~3.5 hours (including WSL migration mid-download)
-  notes          : Pilot tuple for the REST + wget no-auth path. ESGF CEDA
-                   data node. Throughput ~0.5 MB/s sustained on residential
-                   connection. Migration to new WSL drive mid-acquisition did
-                   not corrupt the in-progress file; wget resumed cleanly via
-                   checksum-based skip-on-restart logic.
+To be appended as each acquisition completes. Template:
+
+```
+[YYYY-MM-DDTHHMMZ]  <source_id> / <experiment_id>
+  data_node      : <data_node_hostname>
+  n_files        : <count>
+  bytes          : <size>
+  sha256_verified: <yes / partial / no>
+  wall_clock     : <duration>
+  notes          : <any anomalies>
+```
 
 ---
 
@@ -179,13 +179,6 @@ For each downloaded file:
 |---|---|---|
 | 2026-05-29 | Initial creation; sections 1–7 populated based on Check 6b closure session. Section 4.3 pending per-tuple acquisition completion. | Look Sad |
 
-## 9. Related forcing acquisition
-
-ERA5 basin-mean (the C2-amendment QDM calibration target) is acquired
-via the CDS API, not via ESGF. The CDS API path was verified
-operational on 2026-05-29 via `code/chain_b_cmip6/b0_cds_smoke_test.py`.
-A separate operational log will be created at
-`docs/B0b_ERA5_CDS_ACQUISITION_LOG.md` once B.0b begins.
 ---
 
 **End of acquisition log. Append per-tuple entries to §4.3 as acquisitions complete.**
