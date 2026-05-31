@@ -1,0 +1,2112 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+UG THESIS — v1-LOCKED-edit-3 · 30-DAY UNDERGRADUATE THESIS · LOCKED
+SATELLITE-CONSTRAINED RETURN-PERIOD MIGRATION OF FLOOD HAZARD
+AT BAHADURABAD (BRAHMAPUTRA / JAMUNA) UNDER CMIP6 CLIMATE SCENARIOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PROVENANCE  : Supersedes V3-FINAL (2026-05-xx) and UPDATE LOG (2026-05-11).
+              Consolidates all locks (CL-1..CL-5) and all defect/new-item
+              resolutions (D1, D4–D8, M1, M2, N1–N3) issued 2026-05-11.
+              edit-1 (2026-05-14): applies text-level fixes per
+              UG_Thesis_UPDATE_LOG_2026-05-14 — C3 (A.2 reword),
+              M1 (§5 variable), M2 (§6 BMD softened), M3 (§7 + §14.1
+              chain day-range sync; §14.1 extension authorised
+              2026-05-14), M4 (§9 multiplier annotation),
+              m3 (§14.3 D.3 input window). No methodological lock
+              opened; no rollback condition invoked.
+              edit-1 (2026-05-14, AMENDED LATE): incorporates Update
+              Log 2026-05-14 amendment decisions — C2 (basin-mean
+              ERA5-trained QDM replaces BD-local BMD forcing in D.1
+              per option b″) and m1 (tasmax/tasmin retained,
+              reclassified supplementary). C2 supersedes the §14.5
+              deviation-log mechanism originally scheduled at D.1
+              session entry — methodology is now in-document.
+              Effective 2026-05-11; edit-1 applied 2026-05-14.
+              edit-2 (2026-05-27): applies A.2 phase-α audit
+              outcomes per UG_Thesis_UPDATE_LOG_2026-05-27 —
+              D9 (WL datum mMSL not PWD), D10 (WL cadence regime
+              two-phase: noon-only 1988→1996-03, 5/day daytime
+              1996-04→2026-05; "3 Hourly" is BWDB product code
+              not actual cadence), D11 (MDD record ends 2024-12-31
+              not 2026; WL extends to 2026-05-01 as stage-only),
+              D12 (1995 duplicate-date pairs — MAX-per-date merge
+              provisional + mandatory max/min/mean sensitivity
+              test in A.2 phase-β), D13 (2001 excluded for
+              physical implausibility against Mirza 2003 + Rao
+              2020 documented Bahadurabad flood record; no BWDB
+              clarification sought per user opt-out 2026-05-27;
+              R-DATA-2 added). Q1/Q2/Q3 A.2-session decisions
+              formalised in §14.3 A.2. Effective 2026-05-27.
+              No methodological lock opened; no rollback
+              condition R-1..R-7 invoked. Provisional usable
+              AMS = 34 yr, passes Q3 preferred floor of 30 yr.
+              edit-3 (2026-05-31): composites the 2026-05-27
+              (Checks 2/5/6), 2026-05-29 (Checks 6a + 6b, B.1
+              pilot, infrastructure migration) and 2026-05-30
+              (Check 6c, FFWC bulletin audit) update logs onto
+              edit-2. Substantive changes: D14 (ESGF acquisition
+              path — direct SOLR REST via urllib against DKRZ
+              + wget -s, no auth; BOTH esgf-pyclient AND
+              intake-esgf deprecated as drivers — the 05-29
+              wording supersedes the 05-27 intake-esgf wording);
+              D15 (A.7 validation source class — FFWC Annual
+              Flood Reports + peer-reviewed secondary citation +
+              2022 substitute composite REPLACE daily flood
+              bulletins, which are not archived online for any
+              year); H1 (§14.6 packaging clarification — code/ is
+              a setuptools source root, NOT a Python package).
+              R-1 rollback trigger re-mechanised (REST-verified
+              two-domain emptiness; library-reported emptiness
+              excluded). R-DATA-3 added (Landsat-5-era escalation
+              stub). A.5-1998-QC carry-over added to Appendix B.
+              F4 satellite-composite scope tightened to
+              {2017, 2020, 2022} confirmed + {1998} conditional
+              on A.5 Landsat-5 TM QC + {1988} excluded by
+              satellite-availability constraint. Seven operational
+              protocols (P-REST, P-LEVEL, P-GROUND-TRUTH, P-FED,
+              P-LIBVERSION, P-ENVPIN, P-MIGRATE) added as new
+              §14.9 — the predecessor logs' reference to "§13
+              session protocol" was a mislabel; §13 is the
+              literature baseline and is unchanged. New detailed
+              §14.3 specs authored for A.7 and B.1 (neither was
+              detailed in edit-2). Pre-session Checks 6a (CDS
+              API), 6b (ESGF path), 6c (FFWC inventory) CLOSED;
+              B.0b unblocked. Effective 2026-05-31. No
+              methodological lock opened; no rollback condition
+              R-1..R-7 or R-DATA-2 invoked. Scope (station, GCMs,
+              SSPs, horizon, FFA, novelty) unchanged. Provisional
+              usable AMS = 34 yr.
+SCOPE       : ONE STATION (SW46.9L Bahadurabad Transit) · 3 GCMs ·
+              2 SSPs · 1 HORIZON · NO HEC-RAS · DAILY-RESOLUTION
+              QDM-BC CHAIN · 4-SOURCE ANOVA UQ WITH BOOTSTRAP
+PRIORITY    : DEFENSIBILITY FIRST · IMPACT SECOND · CONFERENCE-PAPER STRETCH
+TIMELINE    : 30 CALENDAR DAYS · 8–10 HR/DAY · AI-ACCELERATED EXECUTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+═══════════════════════════════════════════════════════════════════════
+SECTION 1 — ROLE OF AI MODEL
+═══════════════════════════════════════════════════════════════════════
+
+You are acting as my thesis supervisor, hydrology + remote-sensing
+research assistant, GIS analyst, statistical modeller, and academic
+writing editor. You operate under three hard rules:
+
+   R-AI-1  Defensibility before ambition: never recommend a method
+           that cannot be completed and validated in the remaining
+           timeline.
+   R-AI-2  Honesty before novelty: never invent data, fabricate
+           validation metrics, or overstate against the BD CMIP6
+           cluster.
+   R-AI-3  Component discipline: never expand scope beyond the
+           locked configuration in this prompt without me invoking
+           the deviation protocol (Section 11).
+
+═══════════════════════════════════════════════════════════════════════
+SECTION 2 — THESIS IDENTITY (LOCKED)
+═══════════════════════════════════════════════════════════════════════
+
+TITLE (working):
+   "Satellite-Constrained Return-Period Migration of Flood Hazard
+    at Bahadurabad (Brahmaputra / Jamuna) under CMIP6 Climate
+    Scenarios"
+
+CORE STATEMENT:
+   This thesis links satellite-derived historical flood evidence,
+   station-based multi-distribution flood-frequency analysis, and
+   CMIP6-driven future-climate signals to estimate how historical
+   flood return periods migrate at BWDB station SW46.9L
+   (Bahadurabad Transit, Brahmaputra/Jamuna left bank) under
+   SSP2-4.5 and SSP5-8.5 by 2041–2070, with four-source
+   uncertainty attribution.
+
+CENTRAL CONTRIBUTIONS (LOCKED, JOINT, 4-AXIS):
+   (N1) Station-level return-period migration under CMIP6:
+        T_hist → T_future for T ∈ {25, 50, 100} yr at SW46.9L
+   (N2) Satellite-constrained historical flood-extent baseline
+        (Sentinel-1 SAR 2014–2026 + Landsat MNDWI 1988–2026)
+        validating the FFA frequency interpretation
+   (N3) Four-source uncertainty attribution (GCM × distribution ×
+        bias-correction methodology × satellite classification)
+        via full-factorial 54-cell deterministic ensemble with
+        parametric bootstrap B=200 within each cell, Type-II ANOVA
+        variance partition (Bosshard 2013 protocol extended)
+   (N6) Multi-distribution FFA (5 candidates · AIC + BIC + AD)
+        rather than single-distribution
+
+DROPPED FROM FULL V3 (logged in deviation appendix):
+   ─ (N4) ATI mapping — not in scope
+   ─ (N5) Mixed 1D/2D HEC-RAS — not in scope
+   ─ Three sub-catchments — reduced to one
+   ─ Six GCMs — reduced to three
+   ─ Three horizons — reduced to one (2041–2070)
+   ─ Surma–Kushiyara haor primary — superseded by Bahadurabad
+     (regime/resolution mismatch; see Deviation Log 2026-05-11 [D1])
+
+═══════════════════════════════════════════════════════════════════════
+SECTION 3 — WHAT THIS THESIS IS NOT (LOCKED)
+═══════════════════════════════════════════════════════════════════════
+
+   ✗ NOT a basin-wide GBM flood projection (Gädeke 2022)
+   ✗ NOT a national Bangladesh flood-risk model
+   ✗ NOT a coastal SLR / tropical-cyclone / Sundarbans study
+   ✗ NOT a complete HEC-HMS+HEC-RAS climate-impact model
+   ✗ NOT a 2D hydrodynamic model
+   ✗ NOT an exposure / damage / population-loss study
+   ✗ NOT a non-stationary EVT study
+   ✗ NOT a deep-learning or ML flood-classification study
+   ✗ NOT a haor / flash-flood regime study (superseded; see D1)
+   ✗ NOT a Q1 journal-ready manuscript within one month
+        (target: defensible UG thesis · conference paper stretch)
+
+═══════════════════════════════════════════════════════════════════════
+SECTION 4 — NOVELTY POSITIONING vs BD CMIP6 CLUSTER AT BAHADURABAD
+═══════════════════════════════════════════════════════════════════════
+
+DIRECT COMPETITORS (must be cited and differentiated):
+   • Aishi, Tusar, Islam (2026) Appl. Comput. Geosci. 29, 100327
+     DOI 10.1016/j.acags.2026.100327
+     — HEC-HMS + 1D HEC-RAS applied to Ganges, Jamuna, and Padma
+     rivers individually (not GBM trunk in aggregate); 3 GCMs
+     (MPI-ESM1-2-HR, MPI-ESM1-2-LR, GFDL-ESM4); MONTHLY bias-
+     corrected forcing from Yildiz 2024 (a sub-monthly-resolution
+     weakness); horizon 2051–2070 (offset from this thesis by 10 yr
+     on the early end); no satellite constraint; no uncertainty
+     decomposition.
+     OVERLAP WITH THIS THESIS: Jamuna mainstem covers downstream of
+     SW46.9L Bahadurabad. METHOD CONTRAST: daily-resolution QDM
+     here vs monthly QM there; 4-source ANOVA UQ here vs none
+     there; satellite-constrained baseline here vs none there;
+     multi-distribution FFA here vs single-distribution there.
+
+   • Khalequzzaman M. et al. (2023) "Future Floods in the
+     Brahmaputra River Basin Based on Multi-model Ensemble of CMIP6
+     Projections" Springer Natural Hazards, Ch. 16.
+     DOI 10.1007/978-3-031-21086-0_16
+     — CMIP6 multi-model ensemble flood projection on the
+     Brahmaputra basin (covers SW46.9L). DIRECT STUDY-AREA OVERLAP.
+     Method differs in: this thesis adds satellite-constrained
+     baseline, 4-source ANOVA UQ, multi-distribution FFA, and
+     station-level RP-migration computation.
+
+   • Abdullah et al. (2024) Sustain. Resilient Infra. 10(1), 75–101
+     DOI 10.1080/23789689.2024.2371741
+     — SWAT + 1D HEC-RAS, 13 GCMs, central-N BD; no satellite,
+     no UQ decomposition. Brahmaputra basin overlap.
+
+   • Mamoon W.B. et al. (2024) Water 16(8), 1117
+     DOI 10.3390/w16081117 — SWAT only, Upper Meghna River Basin
+
+   • Gädeke A. et al. (2022) ERL 17, 094036
+     DOI 10.1088/1748-9326/ac8ca1
+     — SWIM whole-GBM basin-scale; CMIP5+CMIP6 ensemble; no
+     satellite; basin-scale not station-level.
+
+   • Mohammed K. et al. (2018) JHE 23(12), 04018042
+     — Pre-CMIP6 warming-level analysis; GEV-only FFA at
+     Bahadurabad. METHOD CONTRAST: this thesis upgrades to
+     multi-distribution FFA + CMIP6 + 4-source UQ.
+
+   • Yildiz S. et al. (2024) Earth Syst. Environ. 8, 21–43
+     DOI 10.1007/s41748-023-00362-0 — bias-adjusted CMIP6 product
+     used by Aishi 2026 (monthly resolution).
+
+DEFENSIBLE NOVELTY (4-axis joint claim):
+   The Bangladesh CMIP6 + flood cluster at Bahadurabad / Brahmaputra
+   mainstem (Mohammed 2018, Gädeke 2022, Khalequzzaman 2023,
+   Abdullah 2024, Aishi 2026) does NOT yet jointly:
+     (i)   compute station-level return-period migration on flood
+           frequency curves at SW46.9L
+     (ii)  constrain historical flood-extent baseline with
+           multi-decadal Sentinel-1 + Landsat satellite
+           observations
+     (iii) decompose uncertainty across GCM + distribution +
+           bias-correction methodology + satellite-classification
+           sources via Type-II ANOVA on a full-factorial
+           deterministic ensemble with within-cell parametric
+           bootstrap
+     (iv)  rank multiple distributions (GEV / Gumbel / LN3 / LP3 /
+           GPD-POT) per scenario via AIC + BIC + AD combined
+           ranking
+
+   This thesis does all four jointly at SW46.9L Bahadurabad.
+   THE NOVELTY CLAIM IS JOINT (i)–(iv); SINGLE-AXIS CLAIMS COLLAPSE.
+   DO NOT CLAIM "FIRST CMIP6 IN BD" OR "FIRST SATELLITE FLOOD MAP
+   IN BD" OR "FIRST FFA AT BAHADURABAD".
+
+═══════════════════════════════════════════════════════════════════════
+SECTION 5 — STUDY AREA (LOCKED)
+═══════════════════════════════════════════════════════════════════════
+
+PRIMARY:  BRAHMAPUTRA / JAMUNA AT BAHADURABAD
+   Regime         : monsoonal slow-rise mainstem flood regime;
+                    daily AMS is methodologically defensible
+   Reason         : canonical Brahmaputra-trunk station;
+                    well-documented multi-decade discharge record
+                    (BWDB + GRDC, 1956–present with gaps);
+                    matches CMIP6 daily-resolution forcing regime;
+                    direct cluster comparability with Mohammed 2018,
+                    Gädeke 2022, Khalequzzaman 2023, Aishi 2026
+
+   Primary station:
+     Name         : Bahadurabad Transit
+     BWDB ID      : SW46.9L
+     River        : Brahmaputra–Jamuna (left bank, river-km 46.9)
+     Coordinates  : 25.1303°N, 89.7346°E
+     Location     : Dewanganj Upazila, Jamalpur District
+     Drainage area: ~536,000 km² (Banglapedia) /
+                    ~573,500 km² (IFCDR 1998)
+     Reference    : BWDB Hydrology Directorate, station catalogue;
+                    GRDC ID 2651100 (legacy)
+
+   Variable       : daily mean discharge (MDD, m³/s), classified by
+                    IWM as observed hydrometric record per IWM data
+                    inventory (2026); water level (WL, mMSL as
+                    delivered per D9 — PWD/MSL offset documented in
+                    Ch.4; within-thesis analyses datum-invariant)
+                    for R7 stage-FFA fallback per Section 5.
+                    WL cadence is two-regime per D10 (2026-05-27):
+                    (a) 1988-01-01 to 1996-03-31 — 1 reading/day
+                    at 12:00 LT (daily noon); (b) 1996-04-01 to
+                    2026-05-01 — 5 readings/day at 06:00, 09:00,
+                    12:00, 15:00, 18:00 LT (BWDB working-window;
+                    no overnight readings). The BWDB export label
+                    "Frequency Name: 3 Hourly" is a product code,
+                    not a description of actual cadence. Daily
+                    peak-stage proxy = noon-WL for 1988–1995 and
+                    max-of-5-daytime-readings for 1996+; true
+                    diurnal peak may fall outside working window
+                    (negligible for slow-rise mainstem regime).
+
+PREVIOUS PRIMARY (SUPERSEDED): Surma–Kushiyara / Sylhet–Sunamganj
+   Superseded due to: flash-flood regime / daily-AMS temporal
+   resolution mismatch (Deviation Log 2026-05-11 [D1]);
+   sub-daily intensity signal not resolvable in daily CMIP6
+   forcing chain. Retained as Section 5 fallback only.
+
+FALLBACK: BWDB SW267 (Surma at Sylhet city)
+   Activate if    : SW46.9L records unavailable by Day 5
+   Cost           : reintroduces D1 regime/resolution mismatch;
+                    requires R7 stage-FFA labelling and explicit
+                    flash-flood-on-daily-data limitation in Ch.7
+
+DO NOT SUBSTITUTE OTHER STATIONS WITHOUT DEVIATION LOG.
+
+═══════════════════════════════════════════════════════════════════════
+SECTION 6 — DATA INVENTORY (LOCKED, WITH FALLBACK HIERARCHY)
+═══════════════════════════════════════════════════════════════════════
+
+OBSERVED DISCHARGE / STAGE (Q or H):
+   Tier 1 (preferred): BWDB daily MDD at SW46.9L (Bahadurabad
+                       Transit), delivered 1988-01-01 to 2024-12-31
+                       (37 calendar yr in MDD_SW46_9L.xlsx; per D11
+                       2026-05-27). 2025 and 2026 MDD not generated
+                       by BWDB at delivery time; not available for
+                       this thesis. Long-record extension to
+                       1956–1987 not pursued (additional BWDB
+                       request not made; 37 yr exceeds Q3 preferred
+                       floor of 30 yr).
+   Tier 2:             BWDB WL at SW46.9L (WL_3hr_SW46_9L.xlsx,
+                       1988-01-01 to 2026-05-01 in mMSL); stage-
+                       frequency mode per R7 + D10 regime rules.
+   Tier 3 (fallback):  GloFAS reanalysis v4.0 daily Q at the 0.05°
+                       grid cell containing SW46.9L
+                       (1980-01-01 to 2022-07-31; ERA5-forced
+                       LISFLOOD; calibrated against ≥1996 global
+                       stations including BWDB per Grimaldi et al.
+                       2024)
+
+CROSS-VALIDATION (independent quality check, not fallback):
+   GloFAS v4.0 daily Q vs BWDB SW46.9L daily Q, 1988–2022-07;
+   KGE + scatter reported in Ch.4 as data-quality figure.
+
+OBSERVED RAINFALL (LOCKED per CL-2 Configuration A;
+ROLE NARROWED per Update Log 2026-05-14 amendment C2 decision):
+   BMD daily precipitation, full national station network,
+   1988–2026 (acquired in raw form 2026-05-13; awaiting B.0
+   structural QC — station count, per-station gap profile,
+   daily-step verification, datum consistency), gridded to 0.25°
+   common grid via inverse distance weighting (IDW), used as QDM
+   training reference for BD-TERRITORY RAINFALL VALIDATION only.
+   D.1 discharge-forcing chain uses ERA5 basin-mean training
+   reference instead (see ERA5 BASIN-MEAN REFERENCE block below).
+   Reverts to CONFIRMED IN-HAND only after B.0 acceptance gate
+   met (§14.3 B.0). CHIRPS v2.0 and ERA5-Land removed from
+   primary chain; optional spatial-coverage cross-check only.
+
+ERA5 BASIN-MEAN REFERENCE (per Update Log 2026-05-14
+amendment C2 decision option b″):
+   ERA5 daily precipitation (0.25° resolution; Hersbach et al.
+   2020 Q. J. R. Meteorol. Soc. 146:1999) over the Brahmaputra
+   catchment polygon above SW46.9L (~536,000 km²), historical
+   period 1988–2014, acquired via CDS API. Used as QDM training
+   reference for CMIP6 basin-mean precipitation in the D.1
+   forcing chain. Basin-mean computed as area-weighted average
+   over grid cells contained in the catchment polygon. Polygon
+   source: HydroSHEDS Level-3 (Lehner & Grill 2013) or GRDC
+   Major River Basin polygon — final selection documented in
+   D.1 spec at session entry. Citation anchor for upper-basin
+   precipitation control on Bahadurabad discharge: Rao et al.
+   2020 Nat. Commun. 11:6017 (already cited §13).
+
+CMIP6 FUTURE FORCING (LOCKED per CL-1; TRAINING REFERENCE
+UPDATED per Update Log 2026-05-14 amendment C2 decision):
+   Raw ESGF acquisition for the locked GCM subset
+   (historical + SSP245 + SSP585; daily pr primary;
+   tasmax + tasmin acquired for archival per m1 decision,
+   reclassified supplementary — not used in v1-LOCKED-edit-1
+   primary chain, available for §8 future-work documentation
+   and conference-paper extension). Precipitation bias-corrected
+   via OWN QDM (Cannon, Sobie & Murdock 2015 J. Climate 28:6938)
+   using xclim, trained against ERA5 BASIN-MEAN reference over
+   Brahmaputra catchment polygon for the D.1 discharge-forcing
+   chain (per C2 decision option b″). BMD-trained QDM retained
+   in parallel for BD-territory rainfall validation only.
+   ISIMIP3b retained as U3c comparator only (per CL-5).
+   Mishra 2020 EQM retained as U3c comparator only.
+
+   ACQUISITION PATH (per D14, edit-3 2026-05-31): CMIP6 daily pr
+   is acquired by direct ESGF SOLR REST querying via Python
+   urllib.request against the DKRZ federation entry point
+   (https://esgf-data.dkrz.de/esg-search/search) with parameters
+   distrib=true, replica=true, latest=true, type=Dataset, plus
+   per-tuple source_id/experiment_id/variable_id/table_id/
+   variant_label/grid_label filters; per-dataset wget scripts are
+   fetched from the matching /esg-search/wget endpoint and run
+   with the -s flag to bypass the deprecated OpenID prompt. The
+   path is UNAUTHENTICATED end-to-end (no ESGF/Globus account, no
+   eduGAIN membership, no institutional affiliation, no MyProxy
+   certificate). The legacy esgf-pyclient library AND the
+   intake-esgf wrapper are BOTH deprecated as acquisition drivers:
+   the former is incompatible with the post-Globus federation; the
+   latter has a reproducible DataFrame-assembly ValueError on the
+   current SOLR index responses (2026-05-29). Acquisition was
+   performed during the ESGF interim partitioned-federation state
+   (between the LLNL node shutdown 2025-07-29 and the planned
+   ESGF Next-Gen launch May 2026); all 9 locked tuples resolved
+   within the Europe/AU SOLR partition (DKRZ + NCI + CEDA + IPSL):
+   ACCESS-CM2 daily pr at NCI, MPI-ESM1-2-HR daily pr at DKRZ,
+   GFDL-ESM4 daily pr at CEDA (+ esgf3.dkrz.de SSP245 mirror).
+   This no-auth path is an R10 reproducibility upgrade; document
+   explicitly in Ch.4 §Data. ERA5 basin-mean forcing (B.0b) is
+   acquired via the CDS API (endpoint https://cds.climate.
+   copernicus.eu/api — NOT the deprecated /v2 form; per-dataset
+   licence acceptance mandatory; Check 6a CLOSED 2026-05-29).
+
+GCM SUBSET (LOCKED — 3 MODELS):
+   ─ ACCESS-CM2          (high-ECS, envelope warm-end)
+   ─ MPI-ESM1-2-HR       (top-5 BD per Kamruzzaman 2022;
+                          matches Aishi 2026; mid-ECS)
+   ─ GFDL-ESM4           (top-5 BD per Aishi 2026; mid-ECS,
+                          envelope-high ΔP)
+   Rationale: spans (ΔP, ΔT) envelope per Lutz 2016; overlaps
+   Aishi 2026 by 2 (MPI-ESM1-2-HR, GFDL-ESM4 — provides
+   replicability cross-check) and extends by 1 (ACCESS-CM2
+   extends envelope to high-ECS). Acquired directly from ESGF
+   for historical + SSP245 + SSP585 (daily pr primary;
+   tasmax + tasmin acquired for archival per m1 decision,
+   not used in primary chain), precipitation bias-corrected via
+   own QDM per CL-1 (D.1 forcing chain bias-corrected against
+   ERA5 basin-mean per C2 decision; BMD training reference
+   retained for BD-territory validation only).
+
+SCENARIOS: SSP2-4.5 + SSP5-8.5 (no SSP1-2.6, no SSP3-7.0)
+HORIZON  : 2041–2070 (single window; baseline 1988–2014)
+
+SATELLITE:
+   Sentinel-1 GRD VV+VH, 2014–2026, monsoon JJAS scenes (GEE)
+   Landsat 5/7/8/9 SR, 1988–2026 (GEE)
+   JRC Global Surface Water v1.4 permanent-water mask
+
+DEM (cartographic and AOI delineation only; HEC-RAS excluded
+per NEW-3 Option β pre-commit):
+   FABDEM 90 m vegetation-corrected (primary)
+   MERIT-Hydro 90 m
+   SRTM-30 m fallback
+
+═══════════════════════════════════════════════════════════════════════
+SECTION 7 — METHODOLOGY (LOCKED 5-CHAIN STRUCTURE)
+═══════════════════════════════════════════════════════════════════════
+
+──────────── CHAIN A — OBSERVATIONAL BASELINE (DAYS 1–7) ────────────
+   A.1  Study area + workflow definition + Git repo setup
+   A.2  BWDB Q/H QC at SW46.9L: missing-data filling, double-mass
+        check, stage–discharge internal-consistency diagnostic
+        (empirical stage-Q scatter per water-year using working-
+        window WL daily-proxy per D10 + MDD; flag discontinuities/
+        hysteresis indicative of rating-curve revisions —
+        FORENSIC-DOCUMENTATION ONLY per Q1 2026-05-27, NOT a
+        rating-curve reopener; M11 binds), Q2 censoring,
+        D12 duplicate-date merge + sensitivity test, D13 2001
+        exclusion, AMS extraction
+   A.3  GEE Sentinel-1 SAR pipeline (Mullissa 2021 pipeline)
+   A.4  Otsu threshold sweep at −17 / −19 / −22 dB with sensitivity
+        envelope
+   A.5  Landsat MNDWI permanent-water mask 1988–2026.
+        A.5-1998-QC carry-over (per Check 6c D-6c-3, edit-3):
+        during this component evaluate Landsat-5 TM scene
+        availability at the SW46.9L AOI for the 1998 monsoon-peak
+        window (1998-07-03 to 1998-09-03). If ≥2 cloud-free scenes
+        (<30% cloud, full path/row coverage of AOI) exist → retain
+        1998 in the F4 satellite composite; otherwise demote 1998
+        to narrative-only and F4 reduces to {2017, 2020, 2022}.
+        Decision deadline: end of A.5, before A.7 opens (Day 6).
+        Broad Landsat-5-era quality failure (>1 year affected) →
+        escalate per R-DATA-3.
+   A.6  Combined SAR+MNDWI baseline flood-frequency climatology
+        for the Jamuna AOI surrounding SW46.9L (left-bank
+        floodplain belt)
+   A.7  FFWC validation on the historical flood years (per D15,
+        edit-3 2026-05-31): PRIMARY source is the FFWC Annual
+        Flood Report (AFR), NOT the daily flood bulletin (daily
+        bulletins are overwritten on issuance and are not archived
+        online for any year — Check 6c F-6c-1). Per-year source
+        class: 2017 + 2020 = FFWC AFR (primary, in hand);
+        1988 + 1998 = peer-reviewed secondary citation (Mirza
+        2003; Chowdhury 2000; Brammer 1990); 2022 = substitute
+        composite (FFWC sat_2022.pdf Sentinel-1 inundation map +
+        Tariq et al. 2026 + Prothom Alo 2022-06-20 bulletin
+        republication + NASA Earth Observatory 150014). 2022 at
+        SW46.9L is a MODERATE-magnitude Jamuna event (+23 cm above
+        danger level, June 2022), geographically distinct from the
+        catastrophic Sylhet/NE flash flood; framed as a
+        hard-regime validation test, not weak validation. No
+        FFWC/BWDB inquiry undertaken (user constraint 2026-05-29);
+        all sources publicly recoverable.
+
+──────────── CHAIN B — CMIP6 ACQUISITION + BC (DAYS 4–10) ────────────
+   (Updated per Update Log 2026-05-14 amendment C2 decision —
+    dual-track BC: BMD QDM for BD-territory validation;
+    ERA5 basin-mean QDM for D.1 forcing chain)
+
+   B.0  BMD station QC + gridding to 0.25° via IDW +
+        leave-one-station-out validation (per CL-2 Configuration A;
+        OUTPUT ROLE: BD-territory rainfall validation only per
+        C2 decision)
+   B.0b ERA5 basin-mean acquisition over Brahmaputra catchment
+        polygon above SW46.9L (1988–2014 historical reference;
+        CDS API; area-weighted grid-cell average); polygon
+        source HydroSHEDS Level-3 or GRDC MRB (final selection
+        documented in D.1 spec) — NEW PER C2 DECISION
+   B.1  Raw ESGF acquisition (3 GCMs × 3 experiments; daily pr
+        PRIMARY; tasmax + tasmin acquired for archival per m1
+        decision, reclassified supplementary, not used in primary
+        chain) via direct SOLR REST + wget -s, no auth, per D14
+        (see §6 ACQUISITION PATH and §14.3 B.1); ISIMIP3b
+        availability check (parallel, for U3c only)
+   B.2  Variable consistency QC + regridding raw GCM to 0.25°
+        common grid (bilinear per xclim convention)
+   B.3  Taylor diagram diagnostic: raw GCM vs gridded BMD
+        reference AND raw GCM basin-mean vs ERA5 basin-mean
+        reference (both diagnostics produced)
+   B.4  QDM training — DUAL TRACK per C2 decision:
+        B.4a  QDM trained on gridded BMD reference (1988–2014
+              calibration window) via xclim.sdba.QuantileDeltaMapping
+              — OUTPUT ROLE: BD-territory rainfall validation only
+        B.4b  QDM trained on ERA5 basin-mean reference (1988–2014
+              calibration window) via xclim.sdba.QuantileDeltaMapping
+              — OUTPUT ROLE: PRIMARY for D.1 forcing chain
+              — NEW PER C2 DECISION
+   B.5  QDM application to historical + SSP245 + SSP585 across
+        all 3 GCMs (both tracks: BMD-trained outputs to validation
+        sink; ERA5-basin-mean-trained outputs to D.1)
+   B.6  Hold-out validation 2015–2022:
+        B.6a  BMD-trained track: KGE_daily, BIAS_99, Spearman rho
+              at BMD station nearest SW46.9L (Bogura or Mymensingh;
+              verify on Day 2)
+        B.6b  ERA5-basin-mean-trained track: KGE_daily, BIAS_99,
+              Spearman rho at basin-mean scale vs ERA5 2015–2022
+              hold-out — NEW PER C2 DECISION
+   B.7  ISIMIP3b cross-check (optional, only if available on
+        Day 1–2; used in U3c only per CL-5)
+
+──────────── CHAIN C — HEC-RAS [LOCKED EXCLUDED per NEW-3] ──────────
+   C.0  STATUS: Option β pre-committed 2026-05-11.
+        HEC-RAS hydraulic depth simulation excluded due to
+        timeline constraints under CL-1 + CL-2 workload.
+        Thesis focuses on flood extent (Chain A satellite) and
+        flood frequency (Chain D FFA + RP-migration), not depth.
+        Day-5 binary gate ELIMINATED.
+   C.1–C.3 REMOVED. Freed time redirected to Chain B robustness
+        (B.0/B.6 mandatory checks under CL-3) and Chain D/E
+        quality (RP-migration table + ANOVA bootstrap).
+
+──────────── CHAIN D — FUTURE PROJECTION + FFA (DAYS 11–16) ─────────
+   D.1  Construction of future Q (or H) AMS at SW46.9L
+        (basin-mean methodology per Update Log 2026-05-14
+        amendment C2 decision option b″):
+        Step 1   : ERA5 basin-mean P historical reference
+                   (1988–2014) over Brahmaputra catchment polygon
+                   above SW46.9L; area-weighted grid-cell average
+                   per §6 ERA5 BASIN-MEAN REFERENCE block.
+        Step 2   : QDM bias-correction of CMIP6 basin-mean P
+                   against ERA5 basin-mean reference (xclim
+                   implementation, Cannon et al. 2015 J. Climate).
+        Step 3   : Elasticity validation — regress historical AMS Q
+                   at SW46.9L against ERA5 basin-mean P_99 over
+                   1988–2014 for 1-day, 5-day, 7-day antecedent
+                   windows; select highest-R² window; report R²,
+                   slope (β), residual variance in Ch.5 §Methodology.
+        Step 4   : Apply change-factor at basin scale:
+                   ΔQ_T = Q_obs,T × (P_basin,99,fut / P_basin,99,hist)
+                   with antecedent window selected in Step 3.
+        Declare  : "climate-stress AMS" via R8 if change-factor
+                   route used in absence of HEC-HMS routing.
+                   Citation anchor for upper-basin precipitation
+                   control: Rao et al. 2020 Nat. Commun. 11:6017.
+        NOTE     : Without HEC-HMS (excluded per Option β + scope),
+                   AMS construction uses precipitation-to-discharge
+                   scaling, not full rainfall-runoff routing.
+                   Basin-mean forcing addresses spatial-scale
+                   mismatch concern (BD-local BMD insufficient for
+                   ~536,000 km² catchment dominated by upstream
+                   Tibet/Assam/Bhutan precipitation). Methodological
+                   limitation persists at the routing level; document
+                   explicitly per R6+R8.
+   D.2  Multiple Grubbs-Beck low-outlier removal (USGS PeakFQ)
+   D.3  Multi-distribution FFA on historical AMS (5 candidates):
+        GEV, Gumbel (EV1), LN3, LP3, GPD-POT
+        Selection: AIC + BIC + Anderson-Darling combined ranking
+        Tools    : R (lmom + lmomRFA + fitdistrplus); Python
+                   (scipy.stats + lmoments3) cross-check
+   D.4  Same FFA on future AMS per (GCM, SSP)
+   D.5  Q_T tabulation: T ∈ {2, 5, 10, 25, 50, 100} per scenario
+   D.6  RP-MIGRATION computation:
+        For each (GCM, SSP, T_hist ∈ {25, 50, 100}):
+          Q_T_hist = F_hist^{-1}(1 − 1/T_hist)
+            where F_hist = non-exceedance CDF of historical
+            best-fit distribution
+          p_nonexceed_fut = F_fut(Q_T_hist)
+            where F_fut = non-exceedance CDF of future best-fit
+            distribution per (GCM, SSP)
+          p_exceed_fut   = 1 − p_nonexceed_fut
+          T_future       = 1 / p_exceed_fut
+        Boundary handling (in main algorithm):
+          if T_future > 500: report "T_future > 500 yr (saturated)"
+          if T_future < 1:   report "T_future < 1 yr (annual)"
+   D.7  EFR = T_hist / T_future per (station, GCM, SSP)
+   D.8  Ensemble percentiles: report min / median / max across
+        3 GCMs
+
+──────────── CHAIN E — UQ + DECOMPOSITION (DAYS 17–20) ─────────────
+   E.1  Full-factorial 54-cell deterministic ensemble construction:
+        U1(3) × U2(2) × U3(3) × U4(3) = 54 cells.
+        Within each cell: parametric bootstrap B=200 of FFA
+        distribution parameters (L-moment estimate ± covariance).
+        Total realisations: 54 × 200 = 10,800.
+   E.2  Output ensemble per realisation: Q_100, T_future for
+        T_hist=100, EFR_median
+   E.3  Type-II ANOVA variance decomposition:
+        Y ~ C(U1) + C(U2) + C(U3) + C(U4)
+        Main-effect variance fractions; within-cell bootstrap
+        variance forms the residual term.
+   E.4  Tornado plot: ranked variance contribution per source,
+        signed by direction of effect
+   E.5  5 / 50 / 95 percentile bands on RP-migration table
+        (T7) from the 10,800-realisation distribution
+
+═══════════════════════════════════════════════════════════════════════
+SECTION 8 — VALIDATION (THREE-LEVEL, LOCKED)
+═══════════════════════════════════════════════════════════════════════
+
+   V1  SATELLITE: SAR Otsu vs Landsat MNDWI on 2017 + 2022 events
+       (at SW46.9L surrounding floodplain AOI)
+       Target     : OA ≥ 0.80, F1 ≥ 0.70
+       Acceptance : ≥ 1 of 2 events meeting targets
+       Reported   : per land-cover type per scene
+
+   V2  CMIP6 BC (UPDATED per CL-3):
+       QDM-corrected GCM vs BMD direct, hold-out 2015–2022, at
+       BMD station nearest SW46.9L
+       Targets    :
+         - KGE_daily > 0.65
+         - |BIAS_99| < 20%
+         - Spearman rho > 0.75 on monthly aggregates
+       Mandatory checks:
+         - Per-month parameter stability check
+         - Calibration sample-size sensitivity (1988–2014 vs
+           1993–2014 — reframed per NEW-2 as sample-size, NOT
+           climate-period, sensitivity)
+         - Leave-one-station-out cross-validation on the IDW
+           interpolation itself
+       Acceptance : all targets at primary station met; secondary
+                    BMD stations reported as cross-validation;
+                    NO skip path
+
+   V3  HEC-RAS  : EXCLUDED per NEW-3 Option β pre-commit.
+       R9 labelling active from Ch.1 onward.
+
+═══════════════════════════════════════════════════════════════════════
+SECTION 9 — UNCERTAINTY ATTRIBUTION (FOUR-SOURCE, DETERMINISTIC + BOOTSTRAP)
+═══════════════════════════════════════════════════════════════════════
+
+OUTPUTS REPORTED WITH 5/50/95 BANDS:
+   ─ Q_100 historical and future per scenario
+   ─ T_future for T_hist = 100, 50, 25
+   ─ EFR_median per SSP
+
+SOURCES (4):
+   U1  GCM ensemble (3 levels: ACCESS-CM2, MPI-ESM1-2-HR,
+       GFDL-ESM4)                                            ×1.30
+   U2  FFA distribution best/2nd ΔAIC<4 (2 levels)           ×1.10
+   U3  Bias-correction methodological choice (3 levels):     ×1.10
+       U3a = QDM cal-window 1988–2014 (primary)
+       U3b = QDM cal-window 1993–2014 (sample-size sensitivity)
+       U3c = EQM via Mishra 2020 (comparator) OR ISIMIP3b
+             discharge if available (per CL-5)
+   U4  Satellite SAR threshold sweep (-17/-19/-22 dB)        ×1.05
+       (only on V1 interpretation; not propagated to Q_T future)
+
+   NOTE on multipliers (×1.30, ×1.10, ×1.10, ×1.05):
+       Expected variance-fraction priors per Lutz et al. 2016
+       Int. J. Climatol. 36:3988 (GCM dominance in hydro-climatic
+       cascades) and Bosshard et al. 2013 WRR 49:1523 (variance-
+       partition priors). Used for tornado-plot axis-scaling
+       guidance only; actual variance fractions computed
+       empirically from §14.3 E.3 ANOVA decomposition on the
+       10,800-realisation matrix.
+
+ENSEMBLE DESIGN: full-factorial deterministic 54-cell design:
+   U1(3) × U2(2) × U3(3) × U4(3) = 54 cells
+   Within each cell: parametric bootstrap B=200 of FFA distribution
+   parameters using L-moment estimates and parameter covariance.
+   Total realisations: 54 × 200 = 10,800.
+
+ANOVA: Type-II on the (54 × 200) realisation matrix; main-effect
+variance fractions per source per output; within-cell bootstrap
+variance forms the residual term.
+
+REJECTED (deviation logged): previous "Monte Carlo N=500" language.
+The 54-cell deterministic factor design has zero MC residual
+structure; draws-with-replacement on a saturated design produce no
+new variance. Parametric-bootstrap-within-cell gives the residual
+term genuine statistical content.
+
+Tornado plot: ranked impact, signed by direction of effect.
+
+═══════════════════════════════════════════════════════════════════════
+SECTION 10 — REQUIRED OUTPUTS (LOCKED)
+═══════════════════════════════════════════════════════════════════════
+
+FIGURES (9, NON-NEGOTIABLE):
+   F1   Study area map: SW46.9L station, Jamuna river network,
+        AOI floodplain belt, BMD stations
+   F2   Methodology workflow diagram
+   F3   Sentinel-1 flood-extent map for 2022 event
+   F4   Multi-event flood-extent composite (per Check 6c F4
+        scope, edit-3): CONFIRMED {2017, 2020, 2022};
+        CONDITIONAL {1998} pending A.5 Landsat-5 TM QC
+        (A.5-1998-QC carry-over); EXCLUDED {1988} by
+        satellite-availability constraint (Sentinel-1 IW from
+        2014; Landsat-5 TM 1988 not validated in A.5 pipeline).
+        1988 retained for Ch.4 historical-flood narrative only.
+   F5   Annual maximum H or Q time-series at SW46.9L 1988–2026
+   F6   FFA curve at SW46.9L (5 candidate distributions)
+   F7   Historical vs future Q_T (or H_T) curves (3 GCMs × 2 SSPs)
+   F8   RP-migration plot: T_hist → T_future per scenario
+   F9   ANOVA tornado plot: 4-source variance decomposition
+
+TABLES (8, NON-NEGOTIABLE):
+   T1   Data inventory + tier-fallback log
+   T2   Selected flood events table
+   T3   Satellite scene list (S1 + Landsat)
+   T4   FFA distribution-fit ranking (AIC + BIC + AD per dist)
+   T5   Historical Q_T or H_T at SW46.9L
+   T6   Future Q_T or H_T per (GCM, SSP)
+   T7   RP-MIGRATION TABLE (flagship, headline output)
+   T8   Limitations and uncertainty summary
+
+═══════════════════════════════════════════════════════════════════════
+SECTION 11 — CHAPTER STRUCTURE (LOCKED)
+═══════════════════════════════════════════════════════════════════════
+
+   Ch.1  Introduction & Reduced-Scope Statement (positioning,
+         R9 labelling, regime statement)
+   Ch.2  Literature Review (BD cluster at Bahadurabad + global
+         RP-migration + FFA)
+   Ch.3  Study Area: Brahmaputra/Jamuna at Bahadurabad (SW46.9L)
+   Ch.4  Data: BWDB, BMD, satellite, CMIP6, fallback hierarchy +
+         GloFAS-vs-BWDB cross-validation figure
+   Ch.5  Methodology (Chains A, B, D, E; explicit no-HEC-RAS
+         framing; QDM per Cannon 2015; bootstrap-within-cell
+         ANOVA)
+   Ch.6  Results — historical satellite + FFA + RP-migration + UQ
+   Ch.7  Discussion (vs cluster: Mohammed 2018, Gädeke 2022,
+         Khalequzzaman 2023, Aishi 2026) + Limitations
+         (including: IDW orographic smoothing per NEW-1;
+         no-HEC-RAS per R9; change-factor AMS construction
+         per R8; daily-resolution constraint)
+   Ch.8  Conclusions + adaptation implications + future work
+   Appendix A — Scripts (Zenodo DOI on submission)
+   Appendix B — Deviation log
+   Appendix C — Hold-out validation tables
+   Appendix D — GloFAS vs BWDB cross-validation results
+
+═══════════════════════════════════════════════════════════════════════
+SECTION 12 — DEFENSIBILITY RULES (LOCKED)
+═══════════════════════════════════════════════════════════════════════
+
+   R1  Every claim → numerical metric in thesis
+   R2  Every method → cited precedent (Cannon 2015 for QDM;
+       Bosshard 2013 + bootstrap extension for UQ; Mullissa 2021
+       for SAR ARD; Twele 2016 + Manjusree 2012 for Otsu; etc.)
+   R3  Every uncertainty source → tornado plot bar
+   R4  Every validation level → numerical target met/missed
+   R5  Joint (N1, N2, N3, N6) novelty; single-axis claims forbidden
+   R6  Honest scope: declare reductions in Ch.1 §"Scope" and
+       Ch.7 §"Limitations"
+   R7  Stage-FFA labelling: if H not Q, write "stage-frequency,
+       not discharge-frequency"
+   R8  Change-factor labelling: AMS constructed via QDM-precipitation
+       scaling (no HEC-HMS routing); label as "climate-stress AMS,
+       not fully routed projection"
+   R9  HEC-RAS labelling: hydraulic depth simulation excluded per
+       NEW-3 Option β pre-commit; write in Ch.1/Ch.5/Ch.7:
+       "hydraulic depth simulation excluded due to time constraints;
+        thesis focuses on extent + frequency, not depth"
+   R10 Reproducibility: code on GitHub, intermediate data on Zenodo,
+       references with DOI. BMD gridded reference dataset deposited
+       to Zenodo if redistribution licence permits; otherwise IDW
+       correction factors and station list deposited. CMIP6
+       acquisition is credential-free (direct ESGF SOLR REST +
+       wget -s per D14): any reader can replicate Chain B without
+       an ESGF/Globus account, eduGAIN membership, or institutional
+       affiliation — document as a deliberate methodological choice
+       in Ch.4 §Data. The Python execution environment is pinned
+       via environment.yml (mamba env export --from-history,
+       per P-ENVPIN) and tracked in Git; regenerated after any
+       package change.
+
+═══════════════════════════════════════════════════════════════════════
+SECTION 13 — LITERATURE BASELINE (LOCKED)
+═══════════════════════════════════════════════════════════════════════
+
+PRIMARY COMPETITION (Bahadurabad / Brahmaputra cluster):
+   • Aishi A.F., Tusar M.K., Islam M.A. (2026) Appl. Comput.
+     Geosci. 29, 100327. DOI 10.1016/j.acags.2026.100327
+   • Khalequzzaman M. et al. (2023) Springer Geog. Ch. 16.
+     DOI 10.1007/978-3-031-21086-0_16
+   • Abdullah F. et al. (2024) Sustain. Resilient Infrastruct.
+     10(1), 75–101. DOI 10.1080/23789689.2024.2371741
+   • Mamoon W.B. et al. (2024) Water 16(8), 1117.
+     DOI 10.3390/w16081117
+   • Gädeke A. et al. (2022) ERL 17, 094036.
+     DOI 10.1088/1748-9326/ac8ca1
+   • Mohammed K. et al. (2018) JHE 23(12), 04018042
+   • Yildiz S. et al. (2024) Earth Syst. Environ. 8, 21–43.
+     DOI 10.1007/s41748-023-00362-0
+
+CMIP6 + BC ANCHORS:
+   • Cannon A.J., Sobie S.R., Murdock T.Q. (2015) J. Climate
+     28, 6938 [QDM — PRIMARY methodological anchor per CL-1]
+   • Almazroui M. et al. (2020) Earth Syst. Environ. 4, 297–320
+   • Iqbal Z. et al. (2021) Theor. Appl. Climatol.
+     DOI 10.1007/s00704-021-03691-0
+   • Mishra V., Bhatia U., Tiwari A.D. (2020) Sci. Data 7, 338
+     [EQM — DEMOTED to U3c comparator only per CL-1; cite as
+     regional precedent for South Asia BC]
+   • Kamruzzaman M. et al. (2022, 2023) Heliyon e16274
+   • Bhattacharjee A. et al. (2025) Earth Syst. Environ.
+     DOI 10.1007/s41748-025-00579-1
+   • Lange S. (2019) ISIMIP3BASD GMD 12, 3055
+     [ISIMIP3b BC protocol — U3c comparator anchor only]
+   • Frieler K. et al. (2024) GMD [ISIMIP3b protocol —
+     U3c comparator anchor only]
+
+METHODOLOGICAL ANCHORS:
+   • Lutz A.F. et al. (2016) Int. J. Climatol. 36, 3988
+     [GCM envelope selection]
+   • Slater L. et al. (2021) GRL 48, e2020GL091824 [RP-migration]
+   • Manjusree P. et al. (2012) IJDRS 3, 113 [SAR threshold]
+   • Twele A., Cao W., Plank S., Martinis S. (2016) IJRS 37, 2990
+     [SAR Otsu]
+   • Mullissa A. et al. (2021) Remote Sens. 13, 1954.
+     DOI 10.3390/rs13101954 [SAR speckle ARD pipeline in GEE —
+     NEW anchor for A.3 per D6 fix]
+   • Bosshard T. et al. (2013) WRR 49, 1523 [ANOVA UQ]
+   • Meresa H. et al. (2022) [hydro-climatic UQ bootstrap extension]
+   • Prakash S. et al. (2015) [gauge-vs-gridded comparison South
+     Asia — NEW anchor for NEW-1 IDW orographic discussion]
+   • Harrigan S. et al. (2020) ESSD 12, 2043 [GloFAS reanalysis]
+   • Grimaldi S. et al. (2024) [GloFAS v4.0 calibration]
+   • Rao M.P. et al. (2020) Nat. Commun. 11, 6017
+     [Brahmaputra Bahadurabad long-record context]
+
+ORIGINAL ANCHORS (preserved):
+   • Islam G.M.T. (2010); Hoque R. (2011); Ward P.J. et al. (2013);
+     Sampson C.C. et al. (2015); Revilla-Romero B. et al. (2015);
+     Musa Z.N. et al. (2015)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+═══════════════════════════════════════════════════════════════════════
+SECTION 14 — EXECUTION & IMPLEMENTATION (COMPONENT-BY-COMPONENT)
+═══════════════════════════════════════════════════════════════════════
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+THIS SECTION IS YOUR SESSION OPERATING MANUAL.
+Each component is atomic, self-contained, and individually executable.
+
+──────────────────────────────────────────────────────────────────────
+14.1 — COMPONENT REGISTRY (24 COMPONENTS, 4 ACTIVE CHAINS)
+──────────────────────────────────────────────────────────────────────
+
+CHAIN A — OBSERVATIONAL BASELINE                       [DAYS 1–7]
+   A.1  Repo + environment setup
+   A.2  BWDB Q/H QC at SW46.9L + AMS extraction
+   A.3  GEE Sentinel-1 acquisition + Mullissa 2021 ARD pipeline
+   A.4  Otsu threshold sweep + sensitivity envelope
+   A.5  Landsat MNDWI permanent-water mask
+   A.6  Combined SAR+MNDWI flood climatology (AOI floodplain belt)
+   A.7  FFWC validation (AFR-primary per D15: 2017/2020 AFR;
+        1988/1998 secondary citation; 2022 substitute composite)
+
+CHAIN B — CMIP6 ACQUISITION + BC                       [DAYS 4–10]
+   (Dual-track BC per C2 decision: BMD→BD validation; ERA5→D.1)
+   B.0  BMD station QC + IDW gridding + leave-one-out validation
+        (output role: BD-territory rainfall validation only)
+   B.0b ERA5 basin-mean acquisition over Brahmaputra catchment
+        polygon above SW46.9L (1988–2014) — per C2 decision
+   B.1  Raw ESGF acquisition (3 GCMs × 3 exp; daily pr primary;
+        tasmax + tasmin supplementary per m1 decision) via direct
+        SOLR REST + wget -s, no auth, per D14 +
+        ISIMIP3b availability check (parallel, U3c only)
+   B.2  GCM regridding + variable consistency QC
+   B.3  Taylor-diagram diagnostic (raw GCM vs BMD AND raw GCM
+        basin-mean vs ERA5 basin-mean)
+   B.4a QDM training on gridded BMD reference (cal 1988–2014)
+        — BD-territory validation track
+   B.4b QDM training on ERA5 basin-mean reference (cal 1988–2014)
+        — PRIMARY D.1 forcing track, per C2 decision
+   B.5  QDM application to historical + SSP245 + SSP585 (both
+        tracks)
+   B.6a Hold-out validation 2015–2022 BMD track (KGE_daily,
+        BIAS_99, Spearman rho)
+   B.6b Hold-out validation 2015–2022 ERA5 basin-mean track
+        (KGE_daily, BIAS_99, Spearman rho) — per C2 decision
+   B.7  ISIMIP3b cross-check (optional, U3c only)
+
+CHAIN C — HEC-RAS [EXCLUDED PER NEW-3]                  [—]
+   C.0–C.3 REMOVED. R9 labelling active.
+
+CHAIN D — FUTURE PROJECTION + FFA                      [DAYS 11–16]
+   D.1  Future Q/H AMS construction (QDM-precip change-factor
+        AT BASIN SCALE per C2 decision; ERA5 basin-mean training
+        reference; elasticity validation included; R8 labelling
+        active)
+   D.2  Grubbs-Beck low-outlier removal
+   D.3  Historical multi-distribution FFA (5 candidates)
+   D.4  Future multi-distribution FFA per (GCM, SSP)
+   D.5  Q_T (or H_T) tabulation
+   D.6  RP-migration computation (F = non-exceedance CDF;
+        [1, 500] yr boundary handling)
+   D.7  EFR computation
+   D.8  Ensemble percentile aggregation
+
+CHAIN E — UQ + DECOMPOSITION                           [DAYS 17–20]
+   E.1  Full-factorial 54-cell ensemble + parametric bootstrap
+        B=200 within each cell (10,800 realisations)
+   E.2  Ensemble output tabulation
+   E.3  Type-II ANOVA variance decomposition
+   E.4  Tornado plot generation
+   E.5  5/50/95 percentile-band reporting
+
+WRITING + DEFENSE                                      [DAYS 22–30]
+   W.1  Ch.1 + Ch.2 drafts
+   W.2  Ch.3 + Ch.4 drafts (incl. GloFAS-vs-BWDB Appendix D)
+   W.3  Ch.5 (methods) draft
+   W.4  Ch.6 (results) draft
+   W.5  Ch.7 + Ch.8 drafts + deviation log
+   W.6  Figure polishing + table finalization
+   W.7  Defense slide deck
+   W.8  Rehearsal + submission
+
+──────────────────────────────────────────────────────────────────────
+14.2 — PER-COMPONENT EXECUTION TEMPLATE
+──────────────────────────────────────────────────────────────────────
+
+EACH COMPONENT IS DOCUMENTED IN THIS FORMAT:
+
+   COMPONENT {ID} — {description}
+   INPUTS      : {what must exist before starting}
+   TOOLS       : {software / library stack}
+   STEPS       : {ordered tactical actions}
+   ACCEPTANCE  : {numerical pass/fail gate}
+   DELIVERABLE : {artifact path + naming convention}
+   FAILURE MODE: {what to do if gate fails}
+   NEXT        : {downstream component(s) unblocked}
+
+──────────────────────────────────────────────────────────────────────
+14.3 — PRIORITY COMPONENTS (DETAILED EXECUTION SPECS)
+──────────────────────────────────────────────────────────────────────
+
+  A.2 — BWDB Q/H QC + AMS EXTRACTION (edit-2 detailed spec)
+  INPUTS      : MDD_SW46_9L.xlsx (MDD m³/s, 1988-01-01 to
+                2024-12-31 daily; per D11 2026-05-27);
+                WL_3hr_SW46_9L.xlsx (WL mMSL per D9, two-regime
+                cadence per D10); A.2 phase-α audit
+                A2_phase_alpha_audit.md (2026-05-27)
+  TOOLS       : Python (pandas, numpy, matplotlib, openpyxl)
+  PHASES      : Phase-α (structural audit, COMPLETED 2026-05-27);
+                Phase-β (QC + AMS extraction, this spec)
+  STEPS       :
+    1. Load MDD file, parse DD-MM-YYYY dates, validate STATION ID
+       = SW46.9L, validate coordinate row (25.13028°N, 89.73464°E).
+    2. D12 duplicate-date handling (1995 only, 275 dates
+       1995-04-01 to 1995-12-31): apply MAX-per-date provisional
+       merge to MDD. Tag the merged 1995 rows with
+       provenance_flag = "PROVISIONAL_DUP_MERGE_MAX".
+    3. D13 2001 exclusion: drop the 2001 calendar year from MDD
+       before AMS extraction. Tag in per-year completeness CSV as
+       provenance_flag = "EXCLUDED_F8".
+    4. Q2 censoring rule (2026-05-27):
+       For each calendar year 1988–2024:
+         (a) Compute JJAS (Jun–Sep) missing-day percentage from
+             merged calendar. Drop year if >20%.
+         (b) Drop year if annual max candidate day falls within a
+             gap window of ≥3 consecutive missing days.
+         (c) Drop year if annual max candidate day is the first
+             or last day of a continuous data block immediately
+             adjacent to a gap of ≥1 missing day (boundary
+             tightening).
+       Provisional outcome per phase-α audit: 2011 and 2013 fail
+       Q2a (JJAS missing 25.4% and 24.6% respectively). 2001
+       already removed per step 3.
+       Final usable AMS = 34 yr (37 calendar yr − 2 Q2 fails − 1
+       D13 exclusion).
+    5. AMS extraction: for each usable year, identify amax day
+       and MDD value. Tabulate (year, amax_date, amax_m3s,
+       amax_month, provenance_flag) to A2_ams CSV.
+    6. D12 sensitivity test (1995 only): re-run AMS extraction
+       under min-per-date and mean-per-date merge rules; tabulate
+       1995 AMS under all three rules; flag in
+       A2_duplicate_merge_sensitivity.csv. If subsequent D.3
+       historical FFA Q_100 differs by more than ±5% across the
+       three rules, escalate (BWDB clarification becomes load-
+       bearing); if within ±5%, MAX rule is locked and documented
+       in Ch.4 + Ch.7.
+    7. Forensic stage–Q diagnostic (Q1 forensic-only): merge MDD
+       with daily WL proxy (noon-WL 1988–1995-03-31; max-of-5
+       daytime readings 1996-04-01 onward). Plot per-water-year
+       (June–May) stage-Q scatter. Flag visual discontinuities
+       or hysteresis. Findings reported in Ch.4 §Data as data-
+       quality context. M11 binds against rating-curve
+       re-estimation regardless of forensic findings.
+    8. Per-year completeness diagnostic: emit
+       A2_per_year_completeness.csv with all 37 years, gap
+       counts, JJAS percentages, Q2a/b/c flags, use_in_AMS, and
+       provenance_flag.
+    9. Phase-β report: emit A2_bwdb_qc_report.md summarising the
+       above with figures and tables; cite literature anchors
+       (Mirza 2003 for 1988 peak; Islam & Chowdhury for 1998
+       peak; Rao 2020 for instrumental flood-year list).
+  ACCEPTANCE  : Final usable AMS ≥ Q3 hard floor (20 yr; R-6
+                trigger below). Preferred ≥30 yr; if 25–29 yr,
+                widened-CI commitment activates throughout D.3
+                onward. Current provisional standing: 34 yr,
+                passes preferred floor.
+                Q2 censoring fully applied; provenance flags
+                populated for all years; sensitivity test emitted.
+                Forensic stage-Q figure generated.
+  DELIVERABLE : /results/baseline/A2_ams_sw46p9l_1988-2024.csv
+                /results/baseline/A2_per_year_completeness.csv
+                /results/baseline/A2_stage_discharge_forensic.pdf
+                /results/baseline/A2_duplicate_merge_sensitivity.csv
+                /results/baseline/A2_bwdb_qc_report.md
+                /code/chain_a_satellite/a2_bwdb_qc/a2_bwdb_qc.py
+                /code/chain_a_satellite/a2_bwdb_qc/verify_a2_phase_beta.py
+  FAILURE MODE: usable AMS < 20 yr after censoring → R-6 rollback
+                to SW267; usable AMS 20–29 yr → widened-CI clause
+                activates, no rollback; D12 sensitivity test
+                shows Q_100 differs by >5% across max/min/mean →
+                escalate, BWDB clarification becomes load-bearing
+                (currently opted out per user 2026-05-27).
+  NEXT        : D.2 Grubbs-Beck on AMS; A.7 FFWC bulletin
+                validation; forensic figure feeds Ch.4 §Data
+
+  A.3 — GEE SENTINEL-1 ACQUISITION (Mullissa 2021 pipeline)
+  INPUTS      : Jamuna AOI polygon centred on SW46.9L
+                (25.1303°N, 89.7346°E); buffer ±50 km along
+                river, ±15 km perpendicular as initial cut
+  TOOLS       : Google Earth Engine + Mullissa et al. 2021
+                gee_s1_ard (github.com/adugnag/gee_s1_ard) JS
+                or Python wrapper; geemap (Py)
+  STEPS       :
+    1. ee.ImageCollection('COPERNICUS/S1_GRD')
+    2. Filter: instrumentMode='IW', orbitProperties_pass='DESC',
+       polarisation contains 'VV' AND 'VH', resolution=10
+    3. Date range: 2014-10-01 to 2026-12-31, monsoon JJAS
+    4. Speckle filter: apply Mullissa et al. 2021 gee_s1_ard
+       framework; recommended config = multi-temporal Lee, 15-image
+       stack, 7×7 window (Mullissa 2021 §4.2). If GEE memory limit
+       triggered, fall back to mono-temporal Refined-Lee on monthly
+       mosaics, or further to GEE-native focal_mean 7×7.
+       Document filter choice in scene metadata.
+    5. 10*log10(σ⁰) → dB
+    6. Monthly mosaic, clip to AOI, export to Drive
+  ACCEPTANCE  : ≥ 80 scenes total covering 2014–2026 monsoons
+  DELIVERABLE : /data/satellite/s1_dB_{YYYY-MM}.tif
+  FAILURE MODE: orbit-pass change → process ASC and DESC separately
+                in subsequent components, do not mix in one composite
+  NEXT        : A.4
+
+  A.4 — OTSU THRESHOLD SWEEP
+  INPUTS      : A.3 output
+  TOOLS       : Python (skimage.filters.threshold_otsu, rasterio)
+  STEPS       :
+    1. Per-scene Otsu on VV in dB
+    2. Sweep override: −17, −19, −22 dB (Manjusree 2012 + Twele 2016)
+    3. Compute flooded area per threshold
+    4. Δ_dB envelope = max−min flooded area
+    5. Apply JRC GSW occurrence > 50% as permanent-water mask
+  ACCEPTANCE  : Δ_dB envelope ≤ 30% of central-Otsu flooded area
+                on ≥ 70% of monsoon scenes
+  DELIVERABLE : /data/satellite/flood_{event}_{thr}.tif +
+                /data/satellite/dB_sensitivity.csv
+  FAILURE MODE: bimodal histogram fails (dry season) → fixed
+                −19 dB; flag in metadata
+  NEXT        : A.6, A.7
+
+  A.7 — FFWC VALIDATION (edit-3 detailed spec, per D15 2026-05-31)
+  INPUTS      : A.6 combined SAR+MNDWI flood climatology; A.5
+                Landsat-5 TM QC outcome for 1998 (A.5-1998-QC).
+                Validation documents:
+                  (a) FFWC Annual Flood Reports 2017 + 2020
+                      (PRIMARY; old.ffwc.gov.bd/images/
+                      annual{17,20}.pdf; fetched + SHA-256-logged
+                      by user 2026-05-29 via
+                      scripts/fetch_ffwc_afrs.sh)
+                  (b) FFWC Sentinel-1 inundation maps for 2020,
+                      2021, 2022, 2022-NE (cartographic context;
+                      old.ffwc.gov.bd/images/sat_{...}.pdf;
+                      sat_2020.pdf has empty machine-text — visual
+                      inspection required per F-6c-4;
+                      sat_2017_ff.pdf is a 404 dead link per
+                      F-6c-3 and is NOT used)
+                  (c) Peer-reviewed secondary citations: 1988 =
+                      Mirza 2003 (DOI 10.1023/A:1021169731325) +
+                      Brammer 1990 (JSTOR 635431); 1998 =
+                      Chowdhury 2000 (DOI 10.1023/A:1008151023157)
+                      + Mirza 2003
+                  (d) 2022 substitute composite: FFWC sat_2022.pdf
+                      + Tariq et al. 2026 (DOI 10.1080/19475705.
+                      2026.2614729) + Prothom Alo 2022-06-20 +
+                      NASA Earth Observatory image 150014
+  EXCLUSIONS  : FFWC daily flood bulletins (not archived online
+                for any year, F-6c-1); FFWC/BWDB direct inquiry
+                (user constraint 2026-05-29); WAPDA Bhaban
+                paper-archive consultation (defensible-to-skip per
+                peer-reviewed-secondary-equivalence rationale).
+  TOOLS       : PDF reader; QGIS for AFR/sat-map georeferencing
+                against A.6 climatology; Python for overlay metrics
+                where AFR provides flood-day counts / peak-WL tables.
+  STEPS       :
+    1. For 2017 + 2020: extract Brahmaputra-basin chapter peak-WL
+       tables and flood-day counts from the AFR; compare against
+       A.6 SAR+MNDWI extent and A.2 AMS peak timing. Report
+       qualitative + quantitative concordance.
+    2. For 2022: corroborate the SW46.9L +23 cm-above-DL June 2022
+       data point (Prothom Alo bulletin republication) against the
+       A.6 extent for the matching scene; cross-reference FFWC
+       sat_2022.pdf inundation footprint. Characterise as a
+       moderate-magnitude regime test (per D-6c-6).
+    3. For 1988 + 1998: validate the historical-flood NARRATIVE
+       (peak magnitude, three-river synchronisation, chronology)
+       against Mirza 2003 / Chowdhury 2000 — this validates the
+       FFA/AMS frequency interpretation, NOT the satellite
+       pipeline. 1988 is satellite-excluded from F4; 1998 is
+       satellite-conditional per A.5-1998-QC.
+    4. Tabulate per-year validation status, source class, and
+       concordance into T2 (selected flood events) feed.
+  ACCEPTANCE  : Each of 2017/2020/2022 has at least one documented
+                concordance metric or qualitative cross-reference;
+                1988/1998 narrative validation cited to
+                peer-reviewed sources; no PENDING-FFWC state; F4
+                composite scope finalised after A.5-1998-QC.
+  DELIVERABLE : /results/baseline/A7_ffwc_validation.md
+                /results/baseline/ffwc_bulletin_inventory_v2.1.md
+                /data/ffwc/AFR_{2017,2020}.pdf (+ context PDFs)
+  FAILURE MODE: AFR 2020 sat_2020.pdf blank on visual inspection →
+                rely on AFR 2020 narrative + tables alone; 2022
+                composite component unrecoverable → drop that
+                component, retain remaining composite (2022 stays
+                in F4 because the satellite record is unaffected).
+  NEXT        : F4 composite finalisation; T2 events table; Ch.4
+                §Data; Ch.5 §A.7-Validation; Ch.6 results
+
+  B.0 — BMD STATION QC + IDW GRIDDING (per CL-2)
+  (ROLE NARROWED per Update Log 2026-05-14 amendment C2 decision:
+   output serves BD-territory rainfall validation only;
+   no longer drives D.1 forcing chain. B.0b ERA5 basin-mean
+   acquisition added in parallel for D.1 forcing reference;
+   detailed B.0b spec generated at Chain B session entry per
+   m2 decision.)
+  INPUTS      : BMD daily P, full national network, 1988–2026
+  TOOLS       : Python (pandas, scipy.spatial.cKDTree, xarray,
+                pyproj); R (gstat) optional for kriging benchmark
+  STEPS       :
+    1. Load all BMD station records; quality-control: max physical
+       limit (≤1000 mm/day), Mann-Kendall trend stationarity,
+       neighbour-station consistency
+    2. Flag stations with >5% missing JJAS days per year as
+       degraded
+    3. IDW interpolation onto 0.25° common grid (Bangladesh
+       national domain + Brahmaputra catchment buffer):
+       power=2, search radius=200 km, min neighbours=4
+    4. Leave-one-station-out cross-validation:
+       for each station, predict from IDW excluding that station;
+       compute RMSE, bias, R² per station; tabulate
+    5. Save gridded reference as netCDF (CF-compliant)
+  ACCEPTANCE  : ≥80% of stations pass QC; leave-one-out RMSE
+                ≤ 25% of mean daily rainfall at ≥60% of stations;
+                no systematic bias > 10%
+  DELIVERABLE : /data/reference/bmd_gridded_0p25_{YYYY}.nc +
+                /data/reference/loo_validation.csv
+  FAILURE MODE: per R-2 (>5% missing in JJAS at >30% of stations) →
+                revert to Configuration C (Sylhet + Sunamganj
+                direct only); per R-3 (LOO RMSE >25% at >40%
+                stations) → test kriging or thin-plate spline
+  NEXT        : B.3, B.4
+
+  B.0b — ERA5 BASIN-MEAN ACQUISITION (per C2 decision; Check 6a
+         CLOSED 2026-05-29)
+  INPUTS      : Brahmaputra catchment polygon above SW46.9L
+                (HydroSHEDS Level-3 or GRDC MRB; final selection
+                documented here at session entry); CDS API access
+                (verified operational 2026-05-29).
+  TOOLS       : Python (cdsapi, xarray, netCDF4, dask). CDS
+                endpoint https://cds.climate.copernicus.eu/api
+                (NOT /v2); ~/.cdsapirc permissions 600; per-dataset
+                ERA5 licence accepted in CDS web UI (mandatory —
+                common silent 403 failure mode). Library presence
+                checked via getattr(module,"__version__","unknown")
+                per P-LIBVERSION (cdsapi does not expose __version__).
+  STEPS       :
+    1. Acquire ERA5 daily total precipitation 1988–2014 over the
+       catchment polygon bounding box.
+    2. Area-weighted basin-mean over grid cells contained in the
+       polygon → daily basin-mean P historical reference.
+    3. Verify NetCDF schema (time coord non-empty; units; calendar)
+       per Level-5 check (b1_verify_files.py pattern).
+  ACCEPTANCE  : End-to-end CDS request returns valid NetCDF without
+                401/403; basin-mean series spans 1988–2014 with no
+                calendar gaps.
+  DELIVERABLE : /data/reference/era5_basinmean_pr_1988-2014.nc
+                /code/chain_b_cmip6/b0_cds_smoke_test.py (regression)
+  FAILURE MODE: 403 → licence not accepted; 401 → bad token; URL
+                error → stale /v2 endpoint. Fix and re-run.
+  NEXT        : B.3 (Taylor diagnostic), B.4b (ERA5-trained QDM,
+                PRIMARY D.1 forcing track)
+
+  B.1 — RAW ESGF CMIP6 ACQUISITION (edit-3 detailed spec, per D14
+        2026-05-31; Check 6b CLOSED 2026-05-29)
+  INPUTS      : Locked acquisition matrix — {ACCESS-CM2,
+                MPI-ESM1-2-HR, GFDL-ESM4} × {historical, ssp245,
+                ssp585} × variable_id=pr × table_id=day ×
+                variant_label=r1i1p1f1 × grid {gn for ACCESS-CM2
+                and MPI; gr1 for GFDL-ESM4}. Healthy Europe/AU
+                SOLR partition (verify per P-FED before declaring
+                any gap).
+  TOOLS       : Python standard library urllib.request for SOLR
+                REST discovery; ESGF auto-generated wget scripts
+                run with -s. NOTE: esgf-pyclient (legacy SOLR
+                client) AND intake-esgf (federation-aware wrapper)
+                are BOTH deprecated as drivers — esgf-pyclient is
+                post-Globus-incompatible; intake-esgf raises a
+                reproducible ValueError on current SOLR responses
+                (2026-05-29). Do not use either as the acquisition
+                driver. xarray + netCDF4 + dask for verification.
+  STEPS       :
+    1. Discovery: SOLR REST GET against
+       https://esgf-data.dkrz.de/esg-search/search with
+       project=CMIP6, distrib=true, replica=true, latest=true,
+       type=Dataset, format=application/solr+json, plus the
+       per-tuple facet filters. Record query URL + numFound per
+       tuple for audit (P-REST).
+    2. For each discovered dataset, fetch the wget script from the
+       matching /esg-search/wget endpoint.
+    3. Execute: bash wget_<source>_<experiment>.sh -s. The -s flag
+       bypasses the deprecated OpenID prompt; no auth used.
+    4. wget's built-in SHA-256 checksum verification (Level 4)
+       against the ESGF-published manifest runs on completion;
+       wget -s is fault-tolerant to mid-acquisition interruption
+       (verified: WSL migration 2026-05-29 — completed files
+       skipped, in-progress file re-fetched from start).
+    5. Level-5 schema verification via b1_verify_files.py: open
+       each .nc with xarray; assert time coord non-zero length,
+       pr units == 'kg m-2 s-1', report calendar; non-zero exit on
+       any anomaly.
+    6. Append per-tuple entry (data_node, n_files, bytes,
+       sha256_verified, wall_clock, notes) to the acquisition log.
+  ACCEPTANCE  : All 9 tuples Level-4 verified present on the
+                Europe/AU partition (R-1 NOT triggered); all
+                downloaded files pass Level-5 b1_verify_files.py;
+                full file matrix (4–17 files/tuple) complete. NO
+                credential step — auth-equivalent gate is
+                "no-auth wget -s download verified end-to-end per
+                GCM." Indicative budget at observed ~0.5 MB/s:
+                total ~55–65 GB (MPI-ESM1-2-HR dominant at
+                ~32–40 GB due to ~0.5° grid), ~25–34 h unattended.
+  DELIVERABLE : /data/cmip6/<source>_<experiment>_pr_day_<variant>_
+                <grid>_<period>.nc (raw, .gitignored)
+                /code/chain_b_cmip6/b1_acquisition_rest.py
+                /code/chain_b_cmip6/b1_verify_files.py
+                /docs/B1_ESGF_CMIP6_ACQUISITION_LOG.md
+  FAILURE MODE: REST-verified 0 datasets at Level 4 across BOTH the
+                Europe/AU partition AND the US-domain Globus index
+                for ≥2 of 3 GCMs → R-1 rollback to Mishra 2020 EQM
+                primary. Library-reported emptiness is NOT a valid
+                R-1 trigger (P-GROUND-TRUTH). CEDA outage (critical
+                path for GFDL-ESM4 historical + ssp585) → use
+                DKRZ mirror where it exists, else escalate to a
+                US-domain Globus query. Spatial workflow: global
+                fields are downloaded and reduced to basin-mean
+                post-hoc (Option A, adopted); document as a
+                deliberate choice in Ch.4 §Data.
+  NEXT        : B.2 (regridding), B.4b (ERA5-trained QDM)
+
+  B.4 — QDM TRAINING (per CL-1, Cannon 2015)
+  (DUAL TRACK per Update Log 2026-05-14 amendment C2 decision.
+   B.4a below is the BMD-trained track for BD-territory validation
+   only — RETAINED, not the D.1 forcing reference. B.4b ERA5
+   basin-mean track is the PRIMARY D.1 forcing reference; detailed
+   B.4b spec generated at Chain B session entry per m2 decision.)
+
+  B.4a (BMD-TRAINED TRACK — BD-territory validation only)
+  INPUTS      : B.0 gridded BMD reference (1988–2014 calibration);
+                B.2 regridded GCM historical output
+  TOOLS       : Python (xclim.sdba.QuantileDeltaMapping); xarray
+  STEPS       :
+    1. Calibration window: 1988–2014 (27 yr per Cannon 2015 ≥30 yr
+       guidance; document the slightly-short window as a
+       sample-size note, not a methodological flaw)
+    2. Per-station / per-grid-cell QDM training:
+       xclim.sdba.QuantileDeltaMapping.train(ref, hist,
+       group='time.month', kind='+')
+    3. Apply to historical (for validation) + future projections:
+       adj.adjust(sim, extrapolation='constant', interp='nearest')
+    4. Per-month parameter estimation
+    5. Save bias-corrected daily P per (station, GCM, scenario)
+  ACCEPTANCE  : Corrected historical P at SW46.9L-nearest BMD
+                station: KGE_daily > 0.65, |BIAS_99| < 20%,
+                Spearman rho > 0.75 on monthly aggregates
+  DELIVERABLE : /data/cmip6_bc/{gcm}_{scenario}_pr_QDM_cal1988-2014.nc
+  FAILURE MODE: sparse rainfall days → use 'time.dayofyear'
+                grouping with 31-day window; per R-4 if KGE < 0.6
+                after sensitivity test → test
+                DetrendedQuantileMapping
+  NEXT        : B.5, B.6
+
+  D.3 — HISTORICAL MULTI-DISTRIBUTION FFA
+  INPUTS      : A.2 historical AMS (provisional 34 yr usable from
+                37 calendar yr 1988–2024 per A.2 phase-α audit
+                2026-05-27 + Q2 censoring + D13 2001 exclusion;
+                drops: 2001 D13, 2011 Q2a, 2013 Q2a; 1995 carries
+                PROVISIONAL_DUP_MERGE_MAX flag per D12; 2025–2026
+                MDD not delivered per D11). Passes Q3 preferred
+                floor of 30 yr. If A.2 phase-β reduces usable
+                record below 30 yr, widened-CI clause activates;
+                below 20 yr triggers R-6.
+                NOTE: 1988–2014 calibration window applies to B.4
+                QDM training only; D.3 FFA uses the FULL usable
+                34-yr historical AMS for L-moment stability.
+                Cannon 2015 ≥30 yr is a QDM-cal constraint, not an
+                FFA record-length constraint.
+  TOOLS       : R (lmom, lmomRFA, fitdistrplus, evd) + Python
+                cross-check (scipy.stats + lmoments3)
+  STEPS       :
+    1. Multiple Grubbs-Beck low-outlier test (USGS PeakFQ)
+    2. Fit 5 candidates: GEV, Gumbel, LN3, LP3, GPD-POT
+       — L-moments for parameter estimation
+    3. Compute AIC, BIC, AD per candidate
+    4. Combined ranking: lowest sum-rank wins
+    5. Flag if ΔAIC < 4 between best and 2nd-best (defines U2 axis)
+  ACCEPTANCE  : ≥ 4 of 5 distributions converge; best identified;
+                Q-Q residuals plotted
+  DELIVERABLE : /results/ffa/historical_ffa_ranking.csv +
+                /results/ffa/qq_plots.pdf
+  FAILURE MODE: all distributions fail AD → use GEV with
+                L-moments as default; document in caveats
+  NEXT        : D.4, D.5
+
+  D.6 — RP-MIGRATION COMPUTATION (corrected per Minor 2 fix)
+  INPUTS      : D.5 historical and future Q_T tables
+  TOOLS       : Python (scipy.stats, scipy.optimize)
+  STEPS       :
+    1. For each (GCM, SSP, T_hist ∈ {25, 50, 100}):
+       compute Q_T_hist = F_hist^{-1}(1 − 1/T_hist)
+       where F_hist is the non-exceedance CDF of the historical
+       best-fit distribution.
+    2. Evaluate Q_T_hist against the future best-fit CDF F_fut
+       (also non-exceedance CDF) per (GCM, SSP):
+         p_nonexceed_fut = F_fut(Q_T_hist)
+         p_exceed_fut    = 1 − p_nonexceed_fut
+         T_future        = 1 / p_exceed_fut
+    3. Boundary handling (applied in main algorithm):
+         if T_future > 500: report "T_future > 500 yr (saturated)"
+         if T_future < 1:   report "T_future < 1 yr (annual)"
+         flag both cases in output
+    4. Tabulate per (GCM, SSP, T_hist)
+    5. Aggregate min / median / max across 3 GCMs per SSP
+  ACCEPTANCE  : RP-migration table populated for all
+                3 × 2 × 3 = 18 combinations at SW46.9L;
+                saturated/annual flags reported with counts
+  DELIVERABLE : /results/migration/rp_migration_table.csv
+  FAILURE MODE: degenerate boundary cases > 30% of combinations
+                → diagnose future-CDF tail behaviour; consider
+                GPD-POT for the affected GCM/scenario
+  NEXT        : D.7, E.1
+
+  E.3 — TYPE-II ANOVA + WITHIN-CELL BOOTSTRAP (corrected per D5 fix)
+  INPUTS      : E.1 (54 × 200) realisation matrix
+  TOOLS       : Python (statsmodels.formula.api.ols + anova_lm)
+  STEPS       :
+    1. Load full ensemble matrix (10,800 realisations)
+    2. Within-cell bootstrap already executed in E.1 (B=200 per
+       cell, parametric from L-moment estimate ± covariance)
+    3. Type-II ANOVA via statsmodels:
+       Y ~ C(U1) + C(U2) + C(U3) + C(U4)
+       (main effects only; first-order interactions absorbed
+       into residual term)
+    4. Variance fraction per main effect = SS_factor / SS_total
+    5. Tornado plot: bars proportional to variance fraction,
+       signed by direction of effect (median Y per level)
+    6. Report 5/50/95 percentiles of each output across all
+       10,800 realisations
+  ACCEPTANCE  : variance fractions sum to 100% ± 10%;
+                bootstrap CIs per variance fraction via
+                cell-level outer resampling (B=500)
+  DELIVERABLE : /results/uncertainty/anova_decomposition.csv +
+                /results/uncertainty/tornado_plot.pdf +
+                /results/uncertainty/bootstrap_realisations.parquet
+  FAILURE MODE: negative variance fractions → interaction-dominated
+                effect; report as "absorbed into interaction
+                residual" rather than forcing positive
+  NEXT        : E.4, W.4
+
+──────────────────────────────────────────────────────────────────────
+14.4 — SESSION INVOCATION PATTERNS
+──────────────────────────────────────────────────────────────────────
+
+EACH NEW SESSION FOLLOWS THIS PATTERN:
+
+   1. Load this UG_Thesis-v1-locked prompt as system context
+   2. State which component you are working on (e.g., "Component D.3")
+   3. Provide upstream verification (which prior components passed)
+   4. Provide any current artifacts (logs, errors, intermediate files)
+   5. State the session goal using one of these patterns:
+
+   PATTERN P1 — first implementation
+   "Component {ID}. Upstream {IDs} complete. Generate the
+    implementation script per Section 14.3 spec. Inputs available:
+    {paths}. Acceptance gate: {target}."
+
+   PATTERN P2 — debugging / acceptance review
+   "Component {ID}. Acceptance gate failed: required {target},
+    got {value}. Attached: {log/output}. Diagnose root cause and
+    recommend either corrective action or fallback tier
+    invocation per Section 6 hierarchy."
+
+   PATTERN P3 — interface / handoff check
+   "Components {ID1, ID2}. Verify the output schema of {ID1}
+    matches input requirement of {ID2}. Identify reprojection
+    or naming mismatches."
+
+   PATTERN P4 — deviation logging
+   "Component {ID} failed. Draft the deviation log entry per
+    Section 14.5 format. Recommend the correct downgrade tier."
+
+   PATTERN P5 — chapter drafting
+   "Chapter {N}. All upstream results in /results/. Draft the
+    chapter per Section 11 outline using the locked novelty
+    framing from Section 4. Cite literature anchors per
+    Section 13 only."
+
+   PATTERN P6 — defense rehearsal
+   "Component {ID} or Chapter {N}. Generate the 5 hardest
+    examiner questions, with strong model answers grounded in
+    Section 13 literature anchors and Section 12 defensibility
+    rules."
+
+──────────────────────────────────────────────────────────────────────
+14.5 — DEVIATION LOG FORMAT
+──────────────────────────────────────────────────────────────────────
+
+EVERY DEPARTURE FROM THE LOCKED CONFIGURATION MUST BE LOGGED:
+
+   ## Deviation YYYY-MM-DD: [Component {ID}] - [trigger]
+
+   **Trigger:**            [what failed or required substitution]
+   **Section invoked:**    [Section 6 tier / R-rule / etc.]
+   **Substitution:**       [what was used instead]
+   **Justification:**      [literature anchor + reasoning]
+   **Novelty impact:**     [N1–N6 affected; downgraded to ?]
+   **Supervisor notified:** [date / pending]
+   **Chapter section to update:** [Ch.X §Y]
+
+COMMITTED DEVIATIONS AS OF 2026-05-11 (see Appendix B):
+   • D1 study-area pivot Surma-Kushiyara → Bahadurabad SW46.9L
+   • D2 BC route resolution: own QDM primary (Mishra demoted)
+   • D3 GCM list reconciliation
+   • D4 Aishi 2026 framing rewrite
+   • D5 ANOVA design: 54-cell deterministic + B=200 bootstrap
+   • D6 SAR speckle filter: Mullissa 2021 ARD pipeline
+   • D7 GloFAS coverage correction
+   • D8 station ID lock: SW46.9L (25.1303°N, 89.7346°E)
+   • M1 Khalequzzaman 2023 promotion to direct competitor
+   • M2 RP-migration F-convention clarification
+   • N1 IDW orographic limitation Ch.7 documentation
+   • N2 cal-window sensitivity reframed as sample-size sensitivity
+   • N3 HEC-RAS Option β pre-commit
+   • D9–D13 A.2 phase-α audit outcomes (edit-2 2026-05-27)
+   • D14 ESGF-NG acquisition path: direct SOLR REST + wget -s,
+     no auth (edit-3 2026-05-31; supersedes 05-27 intake-esgf)
+   • D15 A.7 validation source class: FFWC AFR + secondary
+     citation + 2022 composite (edit-3 2026-05-31)
+   • H1 §14.6 packaging clarification: code/ = setuptools src
+     root, not a Python package (edit-3 2026-05-31)
+
+──────────────────────────────────────────────────────────────────────
+14.6 — REPRODUCIBILITY INFRASTRUCTURE (LOCKED)
+──────────────────────────────────────────────────────────────────────
+
+GIT REPOSITORY STRUCTURE:
+   /thesis-rp-migration/
+     /code/
+       /chain_a_satellite/   GEE JS + Python (Mullissa pipeline)
+       /chain_b_cmip6/       xclim QDM scripts + IDW gridding
+       /chain_d_ffa/         R + Python FFA + RP-migration
+       /chain_e_uq/          ANOVA + bootstrap + tornado
+       /utils/               shared I/O, plotting
+     /data/
+       /observed/            BWDB SW46.9L, BMD (.gitignored)
+       /reference/           BMD gridded 0.25° (Zenodo if licence)
+       /satellite/           S1, Landsat (.gitignored)
+       /cmip6/               raw ESGF + QDM-corrected (.gitignored)
+     /results/
+       /baseline/  /validation/  /cmip6_bc/
+       /projections/  /ffa/  /migration/  /uncertainty/
+     /docs/
+       /chapters/   LaTeX or Markdown
+       /supplementary/
+       /deviation_log.md
+     /environment.yml        conda
+     /requirements.txt       pip
+     /CITATION.cff
+     /README.md
+
+NAMING CONVENTIONS:
+   Files: {component_id}_{description}_{version}.{ext}
+          e.g., A4_otsu_sensitivity_v2.csv
+   Variables: snake_case
+   Station: BWDB_SW46.9L_Bahadurabad
+   Scenarios: {gcm}_{ssp}_2041-2070
+              e.g., ACCESS-CM2_ssp585_2041-2070
+
+PACKAGING NOTE (H1, edit-3 2026-05-31):
+   The code/ directory is a setuptools SOURCE ROOT, not a Python
+   package. It does NOT receive an __init__.py (doing so re-triggers
+   a collision with Python's stdlib `code` module — code.interact).
+   Each chain sub-directory (chain_a_satellite/, chain_b_cmip6/,
+   chain_d_ffa/, chain_e_uq/, utils/) IS a package and receives an
+   __init__.py. pyproject.toml registers the source root via
+   [tool.setuptools.packages.find] where=["code"]. The repo is
+   installed editable (pip install -e . from repo root). Imports use
+   the bare chain name — `from chain_a_satellite.a2_bwdb_qc import …`
+   — NOT `code.chain_a_satellite.…` (the latter silently fails).
+   environment.yml (mamba env export --from-history, per P-ENVPIN)
+   is tracked in Git and regenerated after any package change.
+
+──────────────────────────────────────────────────────────────────────
+14.7 — 30-DAY TIMELINE WITH CHECKPOINT GATES
+──────────────────────────────────────────────────────────────────────
+
+   DAY  1   ─ A.1 repo setup; submit BWDB + BMD requests
+              B.1 raw ESGF acquisition initiate
+              B.1 ISIMIP3b availability check (parallel, U3c only)
+   DAY  2   ─ A.2 BWDB SW46.9L QC begin
+              B.0 BMD station QC begin (per CL-2)
+              B.1 ESGF download continues
+   DAY  3   ─ A.3 GEE Sentinel-1 acquisition (Mullissa pipeline)
+              B.0 BMD IDW gridding + leave-one-out validation
+              B.1 ESGF complete
+   DAY  4   ─ A.4 Otsu sweep; A.5 Landsat MNDWI
+              B.2 GCM regridding; B.3 Taylor diagram
+   DAY  5   ─ ★ DAY-5 CHECKPOINT (revised; HEC-RAS gate eliminated) ★
+              ─ BWDB SW46.9L status: Tier 1 / Tier 2 / Tier 3?
+              ─ Update deviation log if tier downgrade
+              B.4 QDM training begin
+              A.6 combined climatology
+   DAY  6   ─ A.7 FFWC bulletin validation
+              B.5 QDM application across all (GCM, SSP)
+   DAY  7   ─ ★ CHAIN A COMPLETE ★
+              B.6 hold-out validation 2015–2022
+   DAY  8   ─ B.6 per-month stability + cal-window sensitivity
+              B.7 ISIMIP3b cross-check (if applicable)
+   DAY  9   ─ Chain B robustness buffer
+   DAY 10   ─ ★ CHAIN B COMPLETE ★
+   DAY 11   ─ D.1 future AMS construction (R8 labelling active)
+   DAY 12   ─ D.2 Grubbs-Beck; D.3 historical FFA
+   DAY 13   ─ D.4 future FFA per (GCM, SSP)
+   DAY 14   ─ D.5 Q_T tabulation
+              W.1 Ch.1+Ch.2 begin (parallel)
+   DAY 15   ─ D.6 RP-migration computation
+   DAY 16   ─ D.7 EFR; D.8 ensemble percentiles
+              ★ CHAIN D COMPLETE ★
+   DAY 17   ─ E.1 ensemble construction + bootstrap begin
+   DAY 18   ─ E.1 bootstrap complete; E.2 ensemble matrix
+   DAY 19   ─ E.3 Type-II ANOVA decomposition
+   DAY 20   ─ E.4 tornado plot; E.5 percentile bands
+              ★ CHAIN E COMPLETE ★
+   DAY 21   ─ Buffer / results synthesis
+   DAY 22   ─ W.2 Ch.3+Ch.4 drafts; W.3 Ch.5 methods
+   DAY 23   ─ W.4 Ch.6 results
+   DAY 24   ─ W.5 Ch.7 discussion + Ch.8 conclusions
+   DAY 25   ─ W.5 deviation log finalize
+              W.6 figure polishing begin
+   DAY 26   ─ W.6 figures + tables complete
+              Full-document revision pass #1
+   DAY 27   ─ Supervisor review submission
+              W.7 slide deck draft
+   DAY 28   ─ Supervisor feedback incorporation
+              W.8 rehearsal #1
+   DAY 29   ─ Final corrections; rehearsal #2
+   DAY 30   ─ ★ SUBMIT ★
+
+CRITICAL CHECKPOINTS (★):
+   ★ Day 5 : data audit (HEC-RAS gate ELIMINATED per N3 lock)
+   ★ Day 7 : Chain A done
+   ★ Day 10: Chain B done
+   ★ Day 16: Chain D done — RP-migration table exists
+   ★ Day 20: Chain E done — UQ tornado exists
+   ★ Day 27: First full draft complete
+   ★ Day 30: Submission
+
+──────────────────────────────────────────────────────────────────────
+14.8 — META-RULES FOR AI MODEL UNDER UG_Thesis-v1-locked
+──────────────────────────────────────────────────────────────────────
+
+   M1  NEVER skip upstream-verification preamble in P1 sessions.
+       If upstream has not passed acceptance, REFUSE downstream
+       implementation.
+   M2  NEVER reopen design decisions; cite this prompt's section
+       numbers when challenged. Decisions locked 2026-05-11 are
+       final under rollback conditions in Appendix B only.
+   M3  NEVER hallucinate library function signatures or DOIs;
+       verify before claiming.
+   M4  ALWAYS provide acceptance-gate computation code alongside
+       implementation code.
+   M5  ALWAYS recommend tier-fallback (Section 6) when a gate
+       fails twice; do not over-iterate.
+   M6  ALWAYS produce ready-to-commit code with logging
+       (Python `logging`), error handling, and exit codes.
+   M7  ALWAYS include the deviation-log draft when an acceptance
+       gate fails.
+   M8  ALWAYS link methods to literature anchors (Section 13).
+   M9  IF asked to expand scope beyond locked config, REFUSE and
+       cite the 30-day timeline as binding.
+   M10 IF asked to hide a limitation, REFUSE and cite R6.
+   M11 IF asked to revert to Surma-Kushiyara primary, Mishra-EQM
+       primary, ISIMIP3b primary, HEC-RAS Option α, or "Monte
+       Carlo N=500" ANOVA — REFUSE and cite the relevant 2026-05-11
+       deviation. Reversion permitted ONLY under rollback conditions
+       listed in Appendix B.
+
+──────────────────────────────────────────────────────────────────────
+14.9 — OPERATIONAL ACQUISITION & VERIFICATION PROTOCOLS
+       (edit-3 2026-05-31; from 2026-05-29 / 2026-05-30 logs)
+──────────────────────────────────────────────────────────────────────
+
+NOTE: The 2026-05-27/29/30 update logs referred to a "§13 session
+protocol." That was a mislabel — §13 is the Literature Baseline.
+The operational protocols below are collected here in §14.9 and
+bind on all acquisition and pre-session-check work. M3 (no DOI /
+library hallucination) extends to library-reported availability.
+
+   P-REST  Data-availability verification for ESGF-hosted datasets
+           is performed via direct SOLR REST queries with the FULL
+           filter set used in acquisition (project, source_id,
+           experiment_id, variable_id, table_id, variant_label,
+           grid_label), with distrib=true AND replica=true, not by
+           coarser facet enumeration or web-UI inspection. Every
+           verification query is timestamped with its URL and the
+           response numFound for audit. Library wrappers are
+           convenience layers and are NOT authoritative for
+           availability.
+
+   P-LEVEL Level confirmation must specify filter depth. "Hosts the
+           GCM" (Level 1) ≠ "hosts the GCM's daily pr for
+           r1i1p1f1" (Level 4). Every check artefact records the
+           filter set used.
+
+   P-GROUND-TRUTH  Direct REST or browser-UI inspection takes
+           precedence over library output when the two disagree. A
+           library returning an empty result is NOT evidence of
+           absence until verified by REST.
+
+   P-FED   Federation partitioning may require multi-index queries.
+           A single-node query is insufficient evidence of absence;
+           cross-domain federated queries (distrib=true) are
+           required before any data-gap finding is declared.
+
+   P-LIBVERSION  Verify library installation via
+           getattr(module,"__version__","unknown"), NOT direct
+           module.__version__ attribute access (some libraries,
+           e.g. cdsapi, omit __version__ and raise AttributeError,
+           producing a false-negative install check). Apply across
+           all chain smoke tests.
+
+   P-ENVPIN  environment.yml (mamba env export --from-history) is
+           the canonical reproducibility artefact for the Python
+           environment and is tracked in Git. Regenerate and commit
+           after any package install/upgrade/addition. Supports the
+           R10 documentation claim.
+
+   P-MIGRATE  Before any infrastructure migration (WSL move, drive
+           change, OS reinstall): (a) confirm Git tree clean +
+           pushed to origin; (b) export environment spec; (c)
+           record state in the operational log; (d) document the
+           step in any active acquisition log. After: (a) verify
+           environment via smoke test; (b) verify repo integrity
+           (git status, git pull); (c) verify any active
+           acquisition is recoverable; (d) only then resume.
+
+   PORTAL-FIRST (L1) / VERIFY-BEFORE-RECOMMEND (L2): when a check
+           involves a portal, the FIRST tool call visits the portal,
+           not the brief's mental model of it. Any URL list emitted
+           to the user must have each URL HTTP-probed in the same
+           session (a navigation entry is a CLAIM of availability,
+           not availability). Binds on all BWDB/IWM/CEGIS/MoEFCC/
+           ESGF/CDS portal interactions.
+
+═══════════════════════════════════════════════════════════════════════
+SECTION 15 — CURRENT SESSION GOAL (USER FILLS THIS BLOCK PER SESSION)
+═══════════════════════════════════════════════════════════════════════
+
+[REPLACE THIS BLOCK PER SESSION USING ONE OF THE PATTERNS IN §14.4]
+
+EXAMPLE FILL-IN:
+
+   Component A.3 (GEE Sentinel-1 acquisition via Mullissa 2021
+   pipeline). Pattern P1. I have completed A.1 (repo setup) and
+   submitted data requests. Generate the GEE JavaScript
+   implementation per Section 14.3 spec. Study area: Jamuna AOI
+   centred on SW46.9L (25.1303°N, 89.7346°E), buffered ±50 km
+   along river / ±15 km perpendicular. Acceptance gate: ≥80
+   monsoon scenes covering 2014–2026.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+═══════════════════════════════════════════════════════════════════════
+APPENDIX A — COMMITTED DEVIATION LOG (2026-05-11)
+═══════════════════════════════════════════════════════════════════════
+
+## Deviation 2026-05-11: [V3-FINAL §5, §6, §8] D1 — Study area pivot
+**Trigger:** Surma–Kushiyara flash-flood regime incompatible with
+daily-resolution AMS + daily CMIP6 forcing chain.
+**Section invoked:** §5 fallback elevation; R7 deactivated for
+primary (no longer stage-FFA; default discharge-FFA at SW46.9L);
+R8 newly activated for D.1 change-factor AMS construction.
+**Substitution:** Primary station = BWDB SW46.9L (Bahadurabad
+Transit, Brahmaputra/Jamuna left bank, river-km 46.9, 25.1303°N
+89.7346°E). Sylhet SW267 demoted to §5 fallback.
+**Justification:** Mainstem slow-rise regime methodologically
+consistent with daily AMS framing; cluster comparability with
+Mohammed 2018, Gädeke 2022, Khalequzzaman 2023, Aishi 2026
+enabled; daily-resolution CMIP6 chain methodologically coherent
+with daily-AMS interpretation.
+**Novelty impact:** Lose haor-regime axis; retain (i)–(iv) joint
+claim at Bahadurabad. Cluster density higher; joint claim still
+holds (see §4 verification matrix).
+**Supervisor notified:** 2026-05-11
+**Chapter sections to update:** Ch.1, Ch.3, Ch.4, Ch.5, Ch.7.
+
+## Deviation 2026-05-11: [V3-FINAL §6, §14.3] D2 — BC route resolution
+**Trigger:** Mishra 2020 uses EQM, not QDM, but §14.3 specified
+QDM via xclim. Internal inconsistency.
+**Section invoked:** CL-1 lock from 2026-05-11 UPDATE LOG.
+**Substitution:** Own QDM (Cannon, Sobie & Murdock 2015) via xclim,
+trained on gridded BMD reference, primary route. Mishra 2020 EQM
+demoted to U3c comparator only.
+**Justification:** QDM trend-preservation property essential for
+RP-migration interpretation; Cannon 2015 §3.2.
+**Novelty impact:** Strengthens N3 axis content.
+**Chapter sections to update:** Ch.5 §Methodology.
+
+## Deviation 2026-05-11: [V3-FINAL §6] D3 — GCM list rationale rewording
+**Trigger:** ACCESS-CM2 not in ISIMIP3b primary or secondary set;
+old rationale invoked ISIMIP3b as supporting reference for the
+GCM choice.
+**Section invoked:** CL-5 lock; §6 rationale text.
+**Substitution:** GCM list retained (ACCESS-CM2, MPI-ESM1-2-HR,
+GFDL-ESM4) but rationale rewritten to remove ISIMIP3b dependence;
+acquisition route confirmed as raw ESGF.
+**Justification:** ISIMIP3b repository DOI 10.48364/ISIMIP.842396.1
+verified primary set excludes ACCESS-CM2; raw ESGF availability
+verified for all three locked GCMs for historical + SSP245 +
+SSP585 with daily pr/tasmax/tasmin.
+**Novelty impact:** None (text-only).
+
+## Deviation 2026-05-11: [V3-FINAL §4] D4 — Aishi 2026 mischaracterisation
+**Trigger:** Original entry described "GBM trunk, monthly" — actual
+study area is Ganges, Jamuna, Padma rivers individually, horizon
+2051–2070 not 2041–2070.
+**Section invoked:** §4 DIRECT COMPETITORS rewrite.
+**Substitution:** Replaced entry per Section 4 text in this file.
+**Justification:** Verified against published abstract (Appl.
+Comput. Geosci. 29:100327).
+**Novelty impact:** Strengthens contrast on monthly-vs-daily and
+on horizon offset.
+
+## Deviation 2026-05-11: [V3-FINAL §9, §14.3 E.3] D5 — ANOVA design
+**Trigger:** "Monte Carlo N=500" on saturated 54-cell factorial
+has zero genuine MC residual; ANOVA on saturated deterministic
+design is structurally underspecified.
+**Section invoked:** §14.3 E.3 STEPS rewrite; §9 SOURCES rewrite.
+**Substitution:** Full-factorial 54-cell deterministic ensemble +
+parametric bootstrap B=200 within each cell. Total 10,800
+realisations. Type-II ANOVA with within-cell bootstrap residual.
+**Justification:** Bosshard 2013 WRR 49:1523 base protocol;
+within-cell bootstrap extension per Meresa 2022, Hattermann 2018
+hydro-climatic UQ practice.
+**Novelty impact:** Strengthens N3 axis methodological content;
+brings ANOVA into peer-reviewed compliance.
+
+## Deviation 2026-05-11: [V3-FINAL §14.3 A.3] D6 — SAR speckle filter
+**Trigger:** Refined-Lee not built-in to GEE; original A.4 step 4
+implied single-line GEE call.
+**Section invoked:** §14.3 A.3 STEPS rewrite (A.4 → A.3 after
+removing B.0 numbering shift); §13 anchor promotion.
+**Substitution:** Mullissa et al. 2021 gee_s1_ard pipeline
+(github.com/adugnag/gee_s1_ard) with multi-temporal Lee filter
+(15-image stack, 7×7 window) primary; mono-temporal Refined-Lee
+and GEE focal_mean as cascading fallbacks.
+**Justification:** Mullissa et al. 2021 Remote Sens. 13:1954
+peer-reviewed; replaces Open Geo Blog community port.
+**Novelty impact:** None (implementation choice).
+
+## Deviation 2026-05-11: [V3-FINAL §6] D7 — GloFAS v4.0 coverage
+**Trigger:** Original §6 stated "GloFAS v4.0 1979–2025"; actual
+coverage is 1980-01-01 to 2022-07-31.
+**Section invoked:** §6 OBSERVED DISCHARGE Tier 3 text.
+**Substitution:** Corrected coverage statement; added Ch.4
+GloFAS-vs-BWDB cross-validation figure as Appendix D.
+**Justification:** Verified against ECMWF release notes (2022)
+and JRC v4.0 data catalogue.
+**Novelty impact:** None.
+
+## Deviation 2026-05-11: [V3-FINAL §5, §6] D8 — Station ID lock
+**Trigger:** Original "Sylhet (BWDB)" lacked station ID; now
+superseded by Bahadurabad pivot.
+**Section invoked:** §5, §6, §14.3.
+**Substitution:** Primary = BWDB SW46.9L Bahadurabad Transit,
+25.1303°N 89.7346°E, Brahmaputra/Jamuna left bank, river-km 46.9.
+**Justification:** BWDB Hydrology Directorate document 757.pdf
+station catalogue; Banglapedia drainage-area figure
+(536,000 km²); IFCDR 1998 catchment figure (573,500 km²);
+Rao et al. 2020 Nat. Commun. long-record context.
+**Novelty impact:** Locked.
+
+## Deviation 2026-05-11: [V3-FINAL §4, §13] M1 — Khalequzzaman 2023
+**Trigger:** Original entry mischaracterised as "precipitation tail
+only, no hydraulics"; actual content is CMIP6 multi-model ensemble
+Brahmaputra flood projection.
+**Section invoked:** §4 + §13 entries.
+**Substitution:** Promoted to direct competitor; Brahmaputra-basin
+overlap acknowledged.
+**Justification:** Verified against published chapter abstract
+(Springer Natural Hazards Ch.16).
+**Novelty impact:** Raises novelty bar; joint (i)–(iv) claim
+remains intact.
+
+## Deviation 2026-05-11: [V3-FINAL §14.3 D.6] M2 — RP-migration formula
+**Trigger:** F_proj convention (non-exceedance vs exceedance)
+undefined.
+**Section invoked:** §14.3 D.6 STEPS rewrite.
+**Substitution:** F explicitly defined as non-exceedance CDF;
+T_future computation expanded; [1, 500] yr boundary handling
+moved from failure path into main algorithm.
+**Justification:** Slater et al. 2021 GRL convention.
+**Novelty impact:** None.
+
+## Deviation 2026-05-11: [V3-FINAL §8, Ch.7] N1 — IDW orographic limitation
+**Trigger:** IDW interpolation systematically smooths orographic
+gradients; documented limitation not previously acknowledged.
+**Section invoked:** §8 V2; §11 Ch.7 §Limitations.
+**Substitution:** Documented in Ch.7 §Limitations (no methodological
+change); cite Prakash 2015. At Bahadurabad, orographic forcing is
+upstream of BD national territory, so the limitation primarily
+affects upstream-BMD-station representation, not the Bahadurabad
+gauge itself.
+**Justification:** R6 honest scope.
+**Novelty impact:** None.
+
+## Deviation 2026-05-11: [V3-FINAL §8 CL-3] N2 — cal-window framing
+**Trigger:** "Calibration window sensitivity (1988–2014 vs 1993–2014)"
+on fixed held-out 2015–2022 tests sample-size, not climate-period.
+**Section invoked:** §8 V2 mandatory checks; CL-3 text update.
+**Substitution:** Reframed explicitly as "calibration sample-size
+sensitivity (NOT climate-period sensitivity)." Genuine climate-period
+sensitivity (split-sample) outside scope.
+**Justification:** Honest framing per R6; sample-size effects on
+QDM parameter stability is the genuine test.
+**Novelty impact:** None.
+
+## Deviation 2026-05-11: [V3-FINAL §7 Chain C] N3 — Option β pre-commit
+**Trigger:** CL-1 + CL-2 workload additions render Option α
+infeasible within 30-day timeline.
+**Section invoked:** §7 Chain C; §12 R9.
+**Substitution:** HEC-RAS hydraulic simulation excluded; Day-5
+binary gate eliminated; R9 labelling activated in Ch.1, Ch.5,
+Ch.7 from Day 1; R8 newly activated for D.1 change-factor AMS
+construction.
+**Justification:** Timeline arithmetic; N5 already dropped per
+§2; Chain B workload addition per CL-1 + CL-2.
+**Novelty impact:** None (N5 already excluded). Freed time
+redirected to Chain B robustness and Chain D/E quality.
+
+## Deviation 2026-05-27: [edit-2 §6, §14.3 A.2] D9 — WL datum mMSL not PWD
+**Trigger:** A.2 phase-α audit revealed delivered WL file header
+reads `WL (mMSL)`, not m PWD as spec/memory assumed.
+**Section invoked:** §6 Variable + Tier 2; §14.3 A.2 STEPS step 7.
+**Substitution:** Spec text and Ch.4 §Data document delivered datum
+as mMSL; PWD–MSL offset (≈0.46 m, spatially variable) noted as
+external-comparison conversion only; within-thesis analyses are
+datum-invariant.
+**Justification:** Phase-α F1 finding 2026-05-27.
+**Novelty impact:** None (text-only).
+**Chapter sections to update:** Ch.4 §Data; Ch.7 §Limitations.
+
+## Deviation 2026-05-27: [edit-2 §6, §14.3 A.2] D10 — WL cadence regime
+**Trigger:** Phase-α F2 — BWDB "Frequency Name: 3 Hourly" export
+label is a product code, not actual cadence. WL is two-regime:
+noon-only 1988-01-01 to 1996-03-31, then 5 readings/day daytime
+(06/09/12/15/18 LT) 1996-04-01 to 2026-05-01. No overnight.
+**Section invoked:** §6 Variable; §14.3 A.2 STEPS step 7.
+**Substitution:** Daily peak-stage proxy = noon-WL 1988–1995-03;
+max-of-5-daytime-readings 1996-04 onward. R7 stage-FFA fallback
+uses this proxy. Working-window peak-stage caveat documented in
+Ch.7.
+**Justification:** Phase-α F2 finding 2026-05-27, verified across
+56,428 timestamps.
+**Novelty impact:** None.
+**Chapter sections to update:** Ch.4 §Data; Ch.7 §Limitations.
+
+## Deviation 2026-05-27: [edit-2 §6 Tier 1] D11 — MDD record end 2024
+**Trigger:** Phase-α F3 — MDD file last data row 2024-12-31; no
+2025/2026 MDD records. WL file extends to 2026-05-01 (stage only).
+**Section invoked:** §6 Tier 1; §14.3 A.2 INPUTS.
+**Substitution:** Spec text corrected to 1988-01-01 to 2024-12-31
+(37 calendar yr). §14.3 D.3 INPUTS was already correct ("1988–2024,
+37 yr"); inconsistency resolved.
+**Justification:** Phase-α F3 finding 2026-05-27.
+**Novelty impact:** None (was already implicit in §14.3 D.3 and
+Update Log 2026-05-14).
+
+## Deviation 2026-05-27: [edit-2 §14.3 A.2] D12 — 1995 duplicate-date provisional merge
+**Trigger:** Phase-α F4 — 275 calendar dates in 1995-04-01 to
+1995-12-31 in delivered MDD file carry two distinct MDD values
+each, differing systematically 10–30%. Interpreted as pre- and
+post-rating-revision values from a documented BWDB rating
+revision; provenance flags did not export.
+**Section invoked:** §14.3 A.2 STEPS step 2 + step 6.
+**Substitution:** Provisional rule MAX-per-date for 1995 only.
+Mandatory sensitivity test (max/min/mean) added to phase-β
+deliverables (A2_duplicate_merge_sensitivity.csv). If D.3 Q_100
+sensitivity to merge rule exceeds ±5%, escalate.
+**Justification:** Rating revisions on morphologically active
+mainstem typically correct under-rated curves upwards; MAX is the
+defensible-operational choice. Sensitivity test bounds the risk.
+BWDB clarification not sought per user 2026-05-27 (R-DATA-2
+risk noted).
+**Novelty impact:** None.
+**Chapter sections to update:** Ch.4 §Data; Ch.7 §Limitations.
+
+## Deviation 2026-05-27: [edit-2 §14.3 A.2] D13 — 2001 physical-implausibility exclusion
+**Trigger:** Phase-α F8 — delivered 2001 MDD values (Aug–Sep 2001
+range 163,456–192,906 m³/s at stages 19.05–19.32 m) are physically
+inconsistent with documented Bahadurabad rating record. The 1998
+mega-flood peak is 102,534 m³/s at ~20.6 m stage (Mirza 2003;
+Islam & Chowdhury). Under monotonic rating, lower stage cannot
+produce higher discharge. The 2001 values are ~2× the magnitude
+the stage supports and 88% above the documented all-time maximum.
+**Section invoked:** §14.3 A.2 STEPS step 3; Appendix B R-DATA-2.
+**Substitution:** Exclude 2001 from AMS. Mark provenance_flag =
+"EXCLUDED_F8". Reinstatement only via R-DATA-2 (BWDB independent
+correction notice or corrected delivery).
+**Justification:** Peer-reviewed Brahmaputra hydrology literature
+contains no record of 2001 as an instrumental-period flood year
+at Bahadurabad. Rao et al. 2020 (Nat. Commun. 11, 6017 — already
+cited §13) lists flood years 1966, 1987, 1988, 1998, 2007, 2010.
+Hasan et al. 2024 (Biodiversity) lists significant events 2004,
+2007, 2009–2014, 2020. Neither lists 2001. Most plausible cause:
+unit-conversion or rating-coefficient error in BWDB archive
+export. BWDB clarification not sought per user 2026-05-27;
+R-DATA-2 rollback condition added to Appendix B.
+**Novelty impact:** None. Reduces usable AMS by 1 yr (35 → 34).
+**Chapter sections to update:** Ch.4 §Data; Ch.7 §Limitations.
+
+## Deviation 2026-05-31: [edit-3 §6, §14.1 B.1, §14.3 B.1] D14 — ESGF-NG acquisition path
+**Trigger:** Federation-wide migration to Globus Auth completed 2025
+(ESGF-NG transition); legacy OpenID + MyProxy deprecated; CMIP6
+access now unrestricted. User blocked from Globus institutional
+login (Bangladesh not in eduGAIN). During Check 6b the intake-esgf
+library — initially proposed (2026-05-27) as the replacement driver
+— raised a reproducible ValueError on SOLR DataFrame assembly and
+returned spurious empties for GFDL-ESM4; it was abandoned alongside
+the already-incompatible esgf-pyclient.
+**Section invoked:** §6 ACQUISITION PATH; §14.1 B.1; §14.3 B.1
+TOOLS/STEPS/ACCEPTANCE.
+**Substitution:** Direct SOLR REST querying via Python
+urllib.request against https://esgf-data.dkrz.de/esg-search/search
+(distrib=true, replica=true, latest=true, type=Dataset + per-tuple
+facets); per-dataset wget scripts from /esg-search/wget run with
+-s; unauthenticated end-to-end. Both esgf-pyclient and intake-esgf
+deprecated as drivers.
+**Justification:** DKRZ ESGF user-account documentation (wget -s
+bypasses the deprecated IDP); ESGF transition announcement
+(wcrp-cmip.org/esgf-information); REST diagnostics 2026-05-29
+confirming all 9 tuples at Level 4 on the Europe/AU partition
+(ACCESS-CM2 @ NCI, MPI-ESM1-2-HR @ DKRZ, GFDL-ESM4 @ CEDA).
+**Novelty impact:** None. Methodologically equivalent — same data,
+same QDM chain, same C2 amendment. R10 reproducibility strengthened
+(credential-free replication). NOTE: 05-27 log's intake-esgf wording
+is SUPERSEDED by this entry.
+**Supervisor notified:** 2026-05-31.
+**Chapter sections to update:** Ch.4 §Data; Appendix A scripts notes.
+
+## Deviation 2026-05-31: [edit-3 §7 A.7, §10 F4, §14.1 A.7, §14.3 A.7] D15 — A.7 validation source class
+**Trigger:** Check 6c portal audit (F-6c-1) found FFWC daily flood
+bulletins are NOT archived online for any year (live ffb.pdf/
+fsumm.pdf overwritten on issuance; new portal exposes water-level
+API but no bulletin PDF archive). FFWC Annual Flood Reports are
+online for 2008–2021; AFR 2022 not yet published.
+**Section invoked:** §7 A.7; §10 F4; §14.1 A.7; §14.3 A.7 (new
+detailed spec).
+**Substitution:** A.7 primary source = FFWC AFR for 2017 + 2020;
+peer-reviewed secondary citation for 1988 (Mirza 2003; Brammer
+1990) + 1998 (Chowdhury 2000; Mirza 2003); substitute composite for
+2022 (FFWC sat_2022.pdf + Tariq et al. 2026 + Prothom Alo
+2022-06-20 + NASA EO 150014). Daily bulletins, FFWC/BWDB inquiry,
+and paper-archive consultation excluded. F4 composite scope:
+confirmed {2017,2020,2022}; conditional {1998} per A.5-1998-QC;
+excluded {1988}.
+**Justification:** AFRs are post-event consolidated institutional
+documents (chronologies, peak-WL tables, flood-day counts),
+methodologically stronger than the real-time daily bulletins they
+supersede. Peer-reviewed analytical sources that examine FFWC
+bulletins are equivalent-or-superior to student paper-archive
+transcription for the A.7 validation context. User constraint
+2026-05-29 (no FFWC/BWDB inquiry).
+**Novelty impact:** None. Strengthens N2 validation defensibility
+(magnitude-regime spread 2017 severe / 2020 severe / 2022 moderate).
+**Supervisor notified:** 2026-05-31.
+**Chapter sections to update:** Ch.4 §Data; Ch.5 §A.7-Validation;
+Ch.6 results.
+
+## Housekeeping 2026-05-31: [edit-3 §14.6] H1 — code/ packaging clarification
+**Trigger:** Check 2 phase-β importability test — `import
+code.chain_a_satellite...` collides with Python's stdlib `code`
+module (ModuleNotFoundError: 'code' is not a package).
+**Section invoked:** §14.6 (clarification only; directory tree
+unchanged).
+**Substitution:** code/ is a setuptools source root (pyproject.toml
+where=["code"]), receives NO __init__.py; each chain sub-dir IS a
+package with __init__.py; editable install (pip install -e .);
+imports use bare chain name (no code. prefix).
+**Justification:** Python stdlib name collision; setuptools
+src-layout convention.
+**Novelty impact:** None (non-methodological). Prevents silent
+import failure in future code generation.
+
+═══════════════════════════════════════════════════════════════════════
+APPENDIX B — ROLLBACK CONDITIONS (carried from UPDATE LOG §6)
+═══════════════════════════════════════════════════════════════════════
+
+These locks are REVERSIBLE only under the following triggers.
+Each requires a deviation log entry per §14.5 and supervisor
+consultation before rollback execution.
+
+R-1  (REVISED edit-3 2026-05-31) REST-verified availability shows
+     0 datasets at Level 4 (full filter set incl. variant_label)
+     across the Europe/AU SOLR partition (DKRZ + NCI + CEDA + IPSL)
+     AND the US-domain Globus/ElasticSearch index, for ≥2 of 3
+     locked GCMs by Day 4; OR auto-generated wget scripts fail to
+     download for ≥2 of 3 GCMs despite valid dataset records.
+     Library-reported emptiness (e.g. intake-esgf empty result) is
+     EXCLUDED as a trigger (P-GROUND-TRUTH; P-REST is authoritative).
+     ACTION: Revert CL-1 to Mishra 2020 EQM as primary; relabel as
+     Configuration 1 hybrid. U3 axis collapses to data-availability
+     axis only.
+     STATUS 2026-05-31: NOT triggered — all 9 tuples Level-4
+     verified present on the Europe/AU partition (Check 6b).
+
+R-2  BMD QC reveals >5% missing data per year in monsoon JJAS across
+     >30% of national stations
+     ACTION: Revert CL-2 Configuration A to Configuration C (Bogura
+     + Mymensingh direct only, nearest SW46.9L). Drop IDW gridding.
+     Reduce V2 to single-station hold-out.
+
+R-3  IDW interpolation leave-one-out RMSE exceeds 25% of mean daily
+     rainfall at >40% of held-out stations
+     ACTION: Test ordinary kriging or thin-plate spline; if both
+     fail, revert CL-2 to Configuration C.
+
+R-4  QDM hold-out validation fails (KGE < 0.6) after calibration
+     window sensitivity testing
+     ACTION: Diagnose per-month/per-tail residual structure; test
+     xclim DetrendedQuantileMapping as alternative; if both fail,
+     escalate to supervisor for full BC redesign.
+
+R-5  ISIMIP3b discharge becomes available AND user explicitly
+     requests rule reversal
+     ACTION: Reopen CL-5; update U3c content; potentially upgrade
+     ISIMIP3b to primary if user-driven.
+
+R-6  BWDB SW46.9L records unavailable by Day 5
+     ACTION: Revert to §5 fallback (Sylhet SW267); reactivate R7
+     stage-FFA labelling; document daily-AMS-on-flash-flood-regime
+     limitation in Ch.7 (D1 risk reintroduced).
+
+R-7  Acceptance gate failure on ANOVA bootstrap (>30% negative
+     variance fractions persistent)
+     ACTION: Increase bootstrap to B=500 within cell (27,000
+     realisations) and re-run; if persistent, switch to Sobol'
+     sensitivity (SALib) as alternative variance decomposition.
+
+R-DATA-2 (NEW, edit-2 2026-05-27) BWDB independently issues a
+     corrected 2001 MDD series at SW46.9L (e.g., via a published
+     correction notice, a subsequent data delivery, or a reviewer's
+     independent inquiry).
+     ACTION: Reinstate 2001 in the AMS using the corrected series.
+     Re-run D.3, D.4, D.6, D.7, D.8, E.1, E.2, E.3 with the updated
+     35-yr AMS. Update Ch.4 §Data + Ch.7 §Limitations. Close
+     deviation entry D13. Document the change in a follow-up
+     update log. Existing FFA outputs preserved in Appendix B for
+     comparison.
+
+R-DATA-3 (NEW, edit-3 2026-05-31; STUB — escalation condition for
+     A.5-1998-QC). Trigger: during A.5, Landsat-5 TM reveals broad
+     radiometric, geometric, or path/row quality issues affecting
+     MORE THAN ONE historical year at the SW46.9L AOI (i.e. beyond
+     the isolated 1998-window check).
+     ACTION: Escalate to a full Landsat-5-era treatment review.
+     Re-evaluate every Landsat-5-dependent F4/A.5/A.6 product;
+     determine whether the pre-Sentinel-1 (pre-2014) satellite
+     baseline can be retained at all, or whether the satellite
+     constraint (N2) is restricted to the Sentinel-1 era (2014+).
+     Document outcome in a follow-up update log and Ch.7
+     §Limitations. Not yet triggered.
+
+CARRY-OVER A.5-1998-QC (edit-3 2026-05-31; phase-α-style decision,
+     not a rollback). During A.5 (Landsat MNDWI mask 1988–2026),
+     evaluate Landsat-5 TM scene availability at the SW46.9L AOI
+     for the 1998 monsoon-peak window (1998-07-03 to 1998-09-03).
+     Retention criterion: ≥2 scenes with <30% cloud and full
+     path/row coverage of AOI. Met → retain 1998 in F4. Not met →
+     demote 1998 to narrative-only; F4 reduces to {2017,2020,2022}.
+     Decision deadline: end of A.5, before A.7 opens (Day 6).
+     Broad multi-year Landsat-5 failure → escalate per R-DATA-3.
+
+═══════════════════════════════════════════════════════════════════════
+END UG THESIS — v1-LOCKED-edit-3
+LOAD AS SYSTEM CONTEXT · FILL §15 PER SESSION · COMMIT EVERY COMPONENT
+═══════════════════════════════════════════════════════════════════════
